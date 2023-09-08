@@ -1,0 +1,11 @@
+-out:userelemLib.dll
+-def:userelemLibex.def
+-dll
+-machine:X64
+-map
+-manifest:embed
+-defaultlib:ANSYS.lib
+-defaultlib:ansMemManager.lib
+-defaultlib:ansOpenMP.lib
+ 
+*.obj

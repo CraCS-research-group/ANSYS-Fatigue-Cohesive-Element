@@ -1,0 +1,340 @@
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! LICENSE: 
+! Copyright (c) 2023, Siemens Gamesa RE
+! All rights reserved.
+!
+! The author would like to kindly emphasize that the following rules are respected when using the code. 
+!   * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, 
+!   the code and publications describing the implemented models.
+!   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+!
+! DISCLAIMER:
+! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+! SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+! POSSIBILITY OF SUCH DAMAGE.
+!
+! Please send your comments or questions to Inigo Urcelay Oca: iuoc@mp.aau.dk / inigo.oca@siemensgamesa.com 
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MODEL DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! This is an ANSYS Mechanical APDL input file to run a quasi-static analysis of a double-delamination DCB model with user-defined cohesive elements
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PARAMETERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Parameters
+Displacement = 18.0 ! Applied displacement in each arm (mm)
+st_time_substep = 0.01 ! Starting time substep
+max_time_substep = 0.01 ! Maximum time substep
+!
+! The following material properties are defined in "Russo, R., Chen, B. (2020). 
+! Overcoming the cohesive zone limit in composites delamination: modeling with slender structural elements and higher-order adaptive integration. 
+! International Journal for Numerical Methods in Engineering, 121(24), 5511–5545. https://doi.org/10.1002/nme.6497"
+!
+! Material properties DD_DCB specimen
+E11 = 115E3 ! Young modulus 1 (MPa)
+E22 = 8.5E3 ! Young modulus 2 (MPa)
+E33 = 8.5E3 ! Young modulus 3 (MPa)
+G12 = 4.5E3 ! Shear modulus 12 (MPa)
+G13 = 4.5E3 ! Shear modulus 13 (MPa)
+G23 = 3.48E3 ! Shear modulus 23 (MPa)
+v12 = 0.29 ! Poisson's ratio 12
+v13 = 0.29 ! Poisson's ratio 13
+v23 = 0.3 ! Poisson's ratio 23
+v21 = v12*E22/E11 ! Poisson's ratio 21
+!
+! Properties cohesive elements for bottom crack / crack 1
+NIntP1 = 2.0 ! Number of integration points                                     
+IntMethodFlag1 = 1.0  ! Flag to select the integration method: Newton-Cotes (1) or Gauss (2)
+tauI1 = 33 ! Mode I interface strength (MPa)                                        
+tauII1 = 70 ! Mode II interface strength (MPa)                                        
+KStiffness1 = 5.55e5 ! Penalty stiffness. Initial stiffness of undamaged cohesive element (MPa)                                  
+BKeta1 = 2 ! Benzeggagh–Kenane criterion coefficient                                 
+GIc1 = 0.330 ! Mode I critical energy release rate / fracture toughness (N/mm)                                    
+GIIc1 = 0.800 ! Mode II critical energy release rate / fracture toughness (N/mm)                                        
+!
+! Properties cohesive elements for top crack / crack 2
+NIntP2 = 2.0 ! Number of integration points                                     
+IntMethodFlag2 = 1.0  ! Flag to select the integration method: Newton-Cotes (1) or Gauss (2)
+tauI2 = 33 ! Mode I interface strength (MPa)                                        
+tauII2 = 70 ! Mode II interface strength (MPa)                                        
+KStiffness2 = 5.55e5 ! Penalty stiffness. Initial stiffness of undamaged cohesive element (MPa)                                  
+BKeta2 = 2 ! Benzeggagh–Kenane criterion coefficient                                 
+GIc2 = 0.330 ! Mode I critical energy release rate / fracture toughness (N/mm)                                    
+GIIc2 = 0.800 ! Mode II critical energy release rate / fracture toughness (N/mm)                                        
+!
+! The following geometry details are also described in (Russo and Chen, 2020)
+Width = 0.1 ! Width (mm)
+Length = 180 ! Length (mm)
+ThicknessTop = 1.59 ! Thickness of top arm (mm)
+ThicknessMid = 0.265 ! Thickness of middle arm (mm)
+ThicknessBot = 1.325 ! Thickness of bottom arm (mm)
+InitialCrackLengthTop = 40 ! Initial crack length for top crack (mm)
+InitialCrackLengthBot = 20 ! Initial crack length for bottom crack (mm)
+InitialCrackTipPos = 60 ! Initial crack tip position from edge for bottom crack (mm)
+!
+! Define the mesh sizes in each direction
+ElemSizeX = 0.1 ! Element length in the x direction / along the specimen's length (mm)
+ElemSizeY = 0.265 ! Element length in the y direction / along each arm's thickness (mm)
+ElemSizeZ = 0.1 ! Element length in the z direction / along the specimen's width (mm)
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATERIAL PROPERTIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Open preprocessor
+/prep7
+! The composite material properties are defined
+MP, EX, 1, E11
+MP, EY, 1, E22
+MP, EZ, 1, E33
+MP, GXY, 1, G12
+MP, GXZ, 1, G13
+MP, GYZ, 1, G23
+MP, PRXY, 1, v12
+MP, PRXZ, 1, v13
+MP, PRYZ, 1, v23
+! Set units as mm and MPa
+/UNITS, MPA
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GEOMETRY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Define the keypoints
+K, 1, 0, -ThicknessBot, -Width/2
+K, 2, Length-InitialCrackTipPos-InitialCrackLengthBot, -ThicknessBot, -Width/2
+K, 3, Length-InitialCrackTipPos, -ThicknessBot, -Width/2
+K, 4, Length-InitialCrackLengthTop, -ThicknessBot, -Width/2
+K, 5, Length, -ThicknessBot, -Width/2
+K, 6, Length, 0, - Width/2
+K, 7, Length-InitialCrackLengthTop, 0, - Width/2
+K, 8, Length-InitialCrackTipPos, 0, -Width/2
+K, 9, Length-InitialCrackTipPos-InitialCrackLengthBot, 0, -Width/2
+K, 10, 0, 0, -Width/2
+K, 11, 0, 0, -Width/2
+K, 12, Length-InitialCrackTipPos-InitialCrackLengthBot, 0, -Width/2
+K, 13, Length-InitialCrackTipPos, 0, -Width/2
+K, 14, Length-InitialCrackLengthTop, 0, - Width/2
+K, 15, Length, 0, - Width/2
+K, 16, Length, ThicknessMid, - Width/2
+K, 17, Length-InitialCrackLengthTop, ThicknessMid, - Width/2
+K, 18, Length-InitialCrackTipPos, ThicknessMid, -Width/2
+K, 19, Length-InitialCrackTipPos-InitialCrackLengthBot, ThicknessMid, -Width/2
+K, 20, 0, ThicknessMid, -Width/2
+K, 21, 0, ThicknessMid+ThicknessTop, -Width/2
+K, 22, Length-InitialCrackTipPos-InitialCrackLengthBot, ThicknessMid+ThicknessTop, -Width/2
+K, 23, Length-InitialCrackTipPos, ThicknessMid+ThicknessTop, -Width/2
+K, 24, Length-InitialCrackLengthTop, ThicknessMid+ThicknessTop, - Width/2
+K, 25, Length, ThicknessMid+ThicknessTop, - Width/2
+K, 26, Length, ThicknessMid, - Width/2
+! Define the areas based on the keypoints
+A, 1, 2, 9, 10
+A, 2, 3, 8, 9
+A, 3, 4, 7, 8
+A, 4, 5, 6, 7
+A, 11, 12, 19, 20
+A, 12, 13, 18, 19
+A, 13, 14, 17, 18
+A, 14, 15, 16, 17
+A, 20, 19, 22, 21
+A, 19, 18, 23, 22
+A, 18, 17, 24, 23
+A, 17, 26, 25, 24
+! The areas 1 to 12 are extruded in the z direction the width of the specimen
+ALLSEL
+VEXT, 1, 4, 1, 0, 0, Width
+ALLSEL
+VEXT, 5, 12, 1, 0, 0, Width
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MESH SOLID %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Mesh composite solid elements
+! Define element type
+ET, 1, SOLID185
+KEYOPT, 1, 2, 2 ! Enhanced strain formulation
+! Define mesh size
+! In the length direction
+ALLSEL, ALL
+LSEL, S, LOC, X, Length-InitialCrackLengthTop/2 - Length/100, Length-InitialCrackLengthTop/2 + Length/100
+DistanceExpression1 = Length - InitialCrackLengthTop - (InitialCrackTipPos-InitialCrackLengthTop)/2
+LSEL, A, LOC, X, DistanceExpression1 - Length/100, DistanceExpression1 + Length/100
+DistanceExpression2 = Length - InitialCrackTipPos - InitialCrackLengthBot/2
+LSEL, A, LOC, X, DistanceExpression2 - Length/100, DistanceExpression2 + Length/100
+DistanceExpression3 = (Length - InitialCrackTipPos - InitialCrackLengthBot)/2
+LSEL, A, LOC, X, DistanceExpression3 - Length/100, DistanceExpression3 + Length/100
+LESIZE, ALL, ElemSizeX
+! In the thickness direction
+ALLSEL, ALL
+LSEL, S, LOC, Y, -ThicknessBot/2 - ThicknessBot/100, -ThicknessBot/2 + ThicknessBot/100
+LSEL, A, LOC, Y, ThicknessMid/2 - ThicknessMid/100, ThicknessMid/2 + ThicknessMid/100
+LSEL, A, LOC, Y, ThicknessMid+ThicknessTop/2 - ThicknessMid/100, ThicknessMid+ThicknessTop/2 + ThicknessMid/100
+LESIZE, ALL, ElemSizeY
+! In the width direction
+ALLSEL, ALL
+LSEL, S, LOC, Z, 0 - Width/100, 0 + Width/100
+LESIZE, ALL, ElemSizeZ
+! Define local coordinate system and associate it to the unmeshed volumes
+LOCAL, 11, 0, 0, 0, 0, 0, 0
+VATT, 1, , 1, 11
+! Mesh the geometry
+ALLSEL, ALL
+VMESH, ALL
+CSYS, 0
+!
+! Merge nodes
+ALLSEL
+NSEL, S, LOC, X, - Length/10000, Length-InitialCrackTipPos-InitialCrackLengthBot + Length/10000
+NSEL, A, LOC, X, Length-InitialCrackTipPos - Length/10000, Length + Length/10000
+NSEL, R, LOC, Y, 0 - ThicknessMid/1000, 0 + ThicknessMid/1000 
+NUMMRG, NODE, , , , 
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MESH COHESIVE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Define the cohesive elements of crack 1
+ET, 2, USER300
+TYPE, 2
+! The user-element is defined through commands USRELEM and USRDOF
+! USRELEM (number of nodes, number of dimensions (2 or 3), the element shape (ANYSHAPE due to 0 thickness), the number of real constants, the number of saved variables, the number of variables saved in results files 
+! (not including stress and total strain data), key for element formulation control (0 to create one’s own material code within the element formulation, or 1 to use ANSYS standard material subroutine or USERMAT), 
+! maximum number of integration points (if not using one's own material code), the key for the element stress state (if not using one's own material code) and flag for if the element stiffness matrices are symmetric
+! (0) or not (1))
+! USRDOF (command operation to specify, list or delete the DOFs; and then the list of DOFs (which should be some of UX, UY, UZ, ROTX, ROTY, ROTZ, AX, AY, AZ, ...) 
+NREAL = 20 ! Number of real constants
+NSAVEVARS = (NIntP1**2)*20 ! Number of saved variables
+NRSLTVAR = 0 ! Number of variables saved in results files (not including stress and total strain data)
+USRELEM, 8, 3, BRICK, NREAL, NSAVEVARS, NRSLTVAR, 0, , , 1 
+SHPP, OFF, ALL ! To allow for brick-shaped cohesive elements (dactivates element shape checking)
+USRDOF, DEFINE, UX, UY, UZ
+REAL, 2
+R, 2, NIntP1, IntMethodFlag1, tauI1, tauII1, KStiffness1, BKeta1
+RMORE, GIc1, GIIc1, visc1, ParisCI1, ParisCII1, ParisCm1
+RMORE, ParismI1, ParismII1, Parismm1, IncTargeta1, sI, sII 
+! Indicate with 0 that no fatigue initiation should occur
+RMORE, 0, InitiationLength
+!
+! Mesh first with ANSYS'own cohesive elements
+ALLSEL, ALL
+TB, CZM, 4, , , EXPO
+TBDATA, 1, , , 
+ESEL, S, TYPE, , 1
+ET, 4, INTER205
+TYPE, 4
+MAT, 4
+CZMESH, , , 0, Y, 0
+!
+! And then modify the type
+ALLSEL, ALL
+ESEL, S, TYPE, , 4
+EMODIF, ALL, TYPE, 2
+! 
+! Define crack 2
+ET, 3, USER300
+TYPE, 3
+NREAL = 20
+NSAVEVARS = (NIntP2**2)*20 
+NRSLTVAR = 0 
+USRELEM, 8, 3, BRICK, NREAL, NSAVEVARS, NRSLTVAR, 0, , , 1 
+SHPP, OFF, ALL 
+USRDOF, DEFINE, UX, UY, UZ
+REAL, 3
+R, 3, NIntP2, IntMethodFlag2, tauI2, tauII2, KStiffness2, BKeta2
+RMORE, GIc2, GIIc2, visc2, ParisCI2, ParisCII2, ParisCm2
+RMORE, ParismI2, ParismII2, Parismm2, IncTargeta2, sI, sII
+! Indicate with 0 that no fatigue initiation should occur
+RMORE, 0, InitiationLength
+ALLSEL, ALL
+TB, CZM, 5, , , EXPO
+TBDATA, 1, , , 
+ESEL, S, TYPE, , 1
+ET, 5, INTER205
+TYPE, 5
+MAT, 5
+CZMESH, , , 0, Y, ThicknessMid
+ALLSEL, ALL
+ESEL, S, TYPE, , 5
+EMODIF, ALL, TYPE, 3
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Define the contact behaviour in between the pre-crack surfaces using pair-based contact
+! Define the real constant set
+REAL, 6
+! First, define the contact elements
+ET, 6, CONTA173
+! Define frictionless contact
+MP, MU, 6, 0
+MAT, 6
+! Create the contact elements for the precrack
+ALLSEL
+ESEL, S, CENT, X, Length-InitialCrackTipPos-InitialCrackLengthBot - Length/100000, Length-InitialCrackTipPos + Length/100000
+ESEL, R, CENT, Y, -ThicknessBot, 0 - ThicknessBot/10000
+NSLE, S
+NSEL, R, LOC, Y, 0 - ThicknessBot/10000, 0 + ThicknessBot/10000
+TYPE, 6
+ESURF
+! First, define the contact elements
+ET, 7, TARGE170
+! Create the surface elements for the precrack
+ALLSEL
+ESEL, S, CENT, X, Length-InitialCrackTipPos-InitialCrackLengthBot - Length/100000, Length-InitialCrackTipPos + Length/100000
+ESEL, R, CENT, Y, 0 + ThicknessBot/10000, ThicknessMid
+NSLE, S
+NSEL, R, LOC, Y, 0 - ThicknessBot/10000, 0 + ThicknessBot/10000
+TYPE, 7
+ESURF
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SOLUTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Open solution processor
+/SOLU
+ANTYPE, STATIC
+! Defining the starting and maximum time substep
+DELTIM, st_time_substep, max_time_substep/1E20, max_time_substep
+! Large deflections are included
+NLGEOM, ON
+! NLGEOM, OFF
+! The maximum number of errors is set to 99999990
+/NERR, , 99999990
+! The maximum number of equilibrium iterations is increased to 100
+NEQIT, 10
+!
+! Apply damping
+STABILIZE, CONSTANT, ENERGY, 1E-6
+!!
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOUNDARY AND LOADING CONDITIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Select nodes in the left face and restrict all degress of freedom
+ALLSEL, ALL
+NSEL, S, LOC, X, -Length/10000, Length/10000
+D, ALL, ALL, 0
+! 
+! Restrict UZ everywhere
+ALLSEL, ALL
+D, ALL, UZ, 0
+! 
+! Apply the displacement in the top and bottom arms
+! Top arm
+ALLSEL, ALL
+NSEL, S, LOC, X, Length - Length/10000, Length + Length/10000
+NSEL, R, LOC, Y, ThicknessMid+ThicknessTop - ThicknessTop/10000, ThicknessMid+ThicknessTop + ThicknessTop/10000
+D, ALL, UY, Displacement
+! Bottom arm
+ALLSEL, ALL
+NSEL, S, LOC, X, Length - Length/10000, Length + Length/10000
+NSEL, R, LOC, Y, -ThicknessBot - ThicknessBot/10000, -ThicknessBot + ThicknessBot/10000
+D, ALL, UY, -Displacement
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% RESULTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Ask for results in all increments
+OUTRES, ALL, 1
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SOLVING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Everything is selected once again
+ALLSEL
+!!
+! The load step is written and solved
+SOLVE
+FINISH

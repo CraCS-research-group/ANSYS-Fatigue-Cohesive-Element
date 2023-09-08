@@ -1,0 +1,17 @@
+ ======================================== 
+ Linking userelem ... 
+Microsoft (R) Incremental Linker Version 11.00.50727.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+-out:userelemLib.dll 
+-def:userelemLibex.def 
+-dll 
+-machine:X64 
+-map 
+-manifest:embed 
+-defaultlib:ANSYS.lib 
+-defaultlib:ansMemManager.lib 
+-defaultlib:ansOpenMP.lib 
+*.obj 
+   Creating library userelemLib.lib and object userelemLib.exp
+  

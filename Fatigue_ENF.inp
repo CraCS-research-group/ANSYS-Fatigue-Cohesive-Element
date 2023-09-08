@@ -1,0 +1,310 @@
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! LICENSE: 
+! Copyright (c) 2023, Siemens Gamesa RE
+! All rights reserved.
+!
+! The author would like to kindly emphasize that the following rules are respected when using the code. 
+!   * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, 
+!   the code and publications describing the implemented models.
+!   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+!
+! DISCLAIMER:
+! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+! SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+! POSSIBILITY OF SUCH DAMAGE.
+!
+! Please send your comments or questions to Inigo Urcelay Oca: iuoc@mp.aau.dk / inigo.oca@siemensgamesa.com 
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MODEL DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! This is an ANSYS Mechanical APDL input file to run a fatigue analysis of an End-notched Flexure (ENF) model with user-defined cohesive elements
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PARAMETERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Parameters
+Displacement = 2.5 ! Applied displacement in each arm (mm)
+st_time_substepqs = 0.05 ! Starting time substep for quasi-static loading step
+max_time_substepqs = 0.05 ! Maximum time substep for quasi-static loading step
+NumCycles = 10E4 ! Total number of cycles to be simulated
+IncTargetCycles = 10 ! Target of cycles per substep to be simulated
+Totala = 20 ! Total crack growth to be simulated (mm)
+IncTargeta = 0.1 ! Target of crack growth per substep to be simulated
+! In this case, the target given is in terms of crack growth and not of number of cycles
+st_time_substepf = IncTargeta/Totala ! Starting time substep for quasi-static loading step
+max_time_substepf =IncTargeta/Totala ! Maximum time substep for quasi-static loading step
+!
+! The following material properties are defined in "Trabal, G. G., Bak, B. L. V., Chen, B., Carreras, L., Lindgaard, E. (2022). 
+! An adaptive floating node based formulation for the analysis of multiple delaminations under high cycle fatigue loading. 
+! Composites Part A: Applied Science and Manufacturing, 107036. https://doi.org/10.1016/j.compositesa.2022.107036"
+! Material properties of the specimen
+E11 = 120E3 ! Young modulus 1 (MPa)
+E22 = 10.5E3 ! Young modulus 2 (MPa)
+E33 = 10.5E3 ! Young modulus 3 (MPa)
+G12 = 5.3E3 ! Shear modulus 12 (MPa)
+G13 = 5.3E3 ! Shear modulus 13 (MPa)
+G23 = 3.5E3 ! Shear modulus 23 (MPa)
+v12 = 0.3 ! Poisson's ratio 12
+v13 = 0.3 ! Poisson's ratio 13
+v23 = 0.51 ! Poisson's ratio 23
+v21 = v12*E22/E11 ! Poisson's ratio 21
+!
+! Properties cohesive elements
+! Integration parameters
+NIntP = 2.0 ! Number of integration points                                     
+IntMethodFlag = 1.0  ! Flag to select the integration method: Newton-Cotes (1) or Gauss (2)
+! Quasi-static
+tauI = 30 ! Mode I interface strength (MPa)                                        
+tauII = 60 ! Mode II interface strength (MPa)                                        
+KStiffness = 30e6 ! Penalty stiffness. Initial stiffness of undamaged cohesive element (MPa)                                  
+BKeta = 2.73 ! Benzeggagh–Kenane criterion coefficient                                 
+GIc = 0.260 ! Mode I critical energy release rate / fracture toughness (N/mm)                                    
+GIIc = 1.002 ! Mode II critical energy release rate / fracture toughness (N/mm)  
+! Fatigue
+ParisCI = 3.08E-3 ! Paris-law parameter C in mode I (mm/cycle)
+ParisCII = 1.49E-1 ! Paris-law parameter C in mode II (mm/cycle)
+ParisCm = 458087 ! Paris-law parameter C for mixed mode (mm/cycle)
+ParismI = 5.4 ! Paris-law parameter m in mode I
+ParismII = 4.5 ! Paris-law parameter m in mode II
+Parismm = 4.94 ! Paris-law parameter m for mixed mode
+!
+! Geometry dimensions
+Width = 0.75 ! Width (mm)
+Length = 150 ! Length (mm)
+Thickness = 3.1 ! Thickness (mm)
+InitialCrackLength = 45 ! Initial crack length (mm)
+!
+! Define the mesh sizes in each direction
+ElemSizeX = 0.1 ! Element length in the x direction / along the specimen's length (mm)
+ElemSizeY = 0.75 ! Element length in the y direction / along each arm's thickness (mm)
+ElemSizeZ = 0.75 ! Element length in the z direction / along the specimen's width (mm)
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATERIAL PROPERTIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Open preprocessor
+/prep7
+! The composite material properties are defined
+MP, EX, 1, E11
+MP, EY, 1, E22
+MP, EZ, 1, E33
+MP, GXY, 1, G12
+MP, GXZ, 1, G13
+MP, GYZ, 1, G23
+MP, PRXY, 1, v12
+MP, PRXZ, 1, v13
+MP, PRYZ, 1, v23
+! Set units as mm and MPa
+/UNITS, MPA
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GEOMETRY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Define the keypoints
+HalfLength = Length/2
+K, 1, 0, -Thickness/2, -Width/2
+K, 2, InitialCrackLength, -Thickness/2, -Width/2
+K, 3, HalfLength, -Thickness/2, -Width/2
+K, 4, Length, -Thickness/2, -Width/2
+K, 5, Length, 0, - Width/2
+K, 6, HalfLength, 0, -Width/2
+K, 7, InitialCrackLength, 0, -Width/2
+K, 8, 0, 0, -Width/2
+K, 9, 0, 0, - Width/2
+K, 10, Length, Thickness/2, - Width/2
+K, 11, HalfLength, Thickness/2, -Width/2
+K, 12, InitialCrackLength, Thickness/2, - Width/2
+K, 13, 0, Thickness/2, - Width/2
+! Define the areas based on the keypoints
+A, 1, 2, 7, 8
+A, 2, 3, 6, 7
+A, 3, 4, 5, 6
+A, 6, 5, 10, 11
+A, 7, 6, 11, 12
+A, 9, 7, 12, 13
+! The areas 1 to 6 are extruded in the z direction the width of the specimen
+VEXT, 1, 6, 1, 0, 0, Width
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MESH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Mesh composite solid elements
+! Define element type
+ET, 1, SOLID185
+KEYOPT, 1, 2, 2 ! Enhanced strain formulation
+! Define mesh size
+! In the length direction
+ALLSEL, ALL
+LSEL, S, LOC, X, 3*Length/4 - Length/100, 3*Length/4 + Length/100
+LSEL, A, LOC, X, InitialCrackLength/2 - Length/100, InitialCrackLength/2 + Length/100
+LSEL, A, LOC, X, Length/4+InitialCrackLength/2 - Length/100, Length/4+InitialCrackLength/2 + Length/100
+LESIZE, ALL, ElemSizeX
+ALLSEL, ALL
+LSEL, S, LOC, Y, -Thickness/4 - Thickness/100, -Thickness/4 + Thickness/100
+LSEL, A, LOC, Y, Thickness/4 - Thickness/100, Thickness/4 + Thickness/100
+LESIZE, ALL, ElemSizeY
+ALLSEL, ALL
+LSEL, S, LOC, Z, 0 - Width/100, 0 + Width/100
+LESIZE, ALL, ElemSizeZ
+! Define local coordinate system and associate it to the unmeshed volumes
+LOCAL, 11, 0, 0, 0, 0, 0, 0
+VATT, 1, , 1, 11
+! Mesh the geometry
+ALLSEL, ALL
+VMESH, ALL
+CSYS, 0
+!
+! Mesh cohesive elements
+ET, 2, USER300
+TYPE, 2
+! The user-element is defined through commands USRELEM and USRDOF
+! USRELEM (number of nodes, number of dimensions (2 or 3), the element shape (ANYSHAPE due to 0 thickness), the number of real constants, the number of saved variables, the number of variables saved in results files 
+! (not including stress and total strain data), key for element formulation control (0 to create one’s own material code within the element formulation, or 1 to use ANSYS standard material subroutine or USERMAT), 
+! maximum number of integration points (if not using one's own material code), the key for the element stress state (if not using one's own material code) and flag for if the element stiffness matrices are symmetric
+! (0) or not (1))
+! USRDOF (command operation to specify, list or delete the DOFs; and then the list of DOFs (which should be some of UX, UY, UZ, ROTX, ROTY, ROTZ, AX, AY, AZ, ...) 
+NREAL = 20 ! Number of real constants
+NSAVEVARS = (NIntP**2)*20 ! Number of saved variables
+NRSLTVAR = 0 ! Number of variables saved in results files (not including stress and total strain data)
+USRELEM, 8, 3, BRICK, NREAL, NSAVEVARS, NRSLTVAR, 0, , , 1 
+SHPP, OFF, ALL ! To allow for brick-shaped cohesive elements (dactivates element shape checking)
+USRDOF, DEFINE, UX, UY, UZ
+REAL, 2
+R, 2, NIntP, IntMethodFlag, tauI, tauII, KStiffness, BKeta
+RMORE, GIc, GIIc, visc, ParisCI, ParisCII, ParisCm
+RMORE, ParismI, ParismII, Parismm, IncTargeta, sI, sII
+! Indicate with 0 that no fatigue initiation should occur
+RMORE, 0, InitiationLength 
+! Mesh first with ANSYS'own cohesive elements
+ET, 3, INTER205
+CZMESH, , , 0, Y, 0
+! And then modify the type
+ALLSEL, ALL
+ESEL, S, TYPE, , 3
+EMODIF, ALL, TYPE, 2
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Define the contact behaviour in between the pre-crack surfaces using pair-based contact
+! Define the real constant set
+REAL, 4
+! First, define the contact elements
+ET, 4, CONTA173
+! Define frictionless contact
+MP, MU, 4, 0
+MAT, 4
+! Create the contact elements
+ALLSEL
+ESEL, S, CENT, X, 0 - Length/100000, InitialCrackLength + Length/100000
+ESEL, R, CENT, Y, -Thickness/2, 0 - Thickness/10000
+NSLE, S
+NSEL, R, LOC, Y, 0 - Thickness/10000, 0 + Thickness/10000
+TYPE, 4
+ESURF
+! First, define the contact elements
+ET, 5, TARGE170
+! Create the surface elements
+ALLSEL
+ESEL, S, CENT, X, 0 - Length/100000, InitialCrackLength + Length/100000
+ESEL, R, CENT, Y, 0 + Thickness/10000, Thickness/2
+NSLE, S
+NSEL, R, LOC, Y, 0 - Thickness/10000, 0 + Thickness/10000
+TYPE, 5
+ESURF
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BOUNDARY AND LOADING CONDITIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Select nodes in the left roller (x=0) and restrict UY and UZ
+ALLSEL, ALL
+NSEL, S, LOC, X, -Length/10000, Length/10000
+NSEL, R, LOC, Y, -Thickness/2 - Thickness/10000, -Thickness/2 + Thickness/10000
+D, ALL, UY, 0
+D, ALL, UZ, 0
+! Select nodes in the right roller (x=0) and restrict UY and UZ
+ALLSEL, ALL
+NSEL, S, LOC, X, Length - Length/10000, Length + Length/10000
+NSEL, R, LOC, Y, -Thickness/2 - Thickness/10000, -Thickness/2 + Thickness/10000
+D, ALL, UY, 0
+D, ALL, UZ, 0
+!
+! Restrict UX in the top roller
+ALLSEL, ALL
+NSEL, S, LOC, X, Length/2 - Length/10000, Length/2 + Length/10000
+NSEL, R, LOC, Y, Thickness/2 - Thickness/10000, Thickness/2 + Thickness/10000
+D, ALL, UX, 0
+!
+! Apply plain-strain conditions
+ALLSEL, ALL
+D, ALL, UZ, 0
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% STATIC SUBSTEP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Open solution processor
+/SOLU
+!
+! Quasi-static loading substep
+ANTYPE, STATIC
+! Defining the starting and maximum time substep
+DELTIM, st_time_substepqs, max_time_substepqs/1E20, max_time_substepqs
+! Large deflections are included
+NLGEOM, ON
+! The maximum number of errors is set to 99999990
+/NERR, , 99999990
+! The maximum number of equilibrium iterations is increased to 100
+NEQIT, 100
+! 
+! Apply the displacement in the top roller
+ALLSEL, ALL
+NSEL, S, LOC, X, Length/2 - Length/10000, Length/2 + Length/10000
+NSEL, R, LOC, Y, Thickness/2 - Thickness/10000, Thickness/2 + Thickness/10000
+D, ALL, UY, -Displacement
+!
+! Ask for results in all increments
+OUTRES, ALL, 1
+!
+! Everything is selected once again
+ALLSEL
+!
+! The load step is written and solved
+SOLVE
+!
+*GET, NumSubstepsStatic, ACTIVE, 0, SOLU, NCMSS
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FATIGUE SUBSTEP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+! Fatigue loading substep
+ANTYPE, STATIC
+! Defining the starting and maximum time substep
+DELTIM, st_time_substepf, max_time_substepf/1E6, max_time_substepf
+! Large deflections are included
+NLGEOM, ON
+! The maximum number of errors is set to 99999990
+/NERR, , 99999990
+! The maximum number of equilibrium iterations is increased to 100
+NEQIT, 100
+! 
+! Apply the displacement in the top roller
+ALLSEL, ALL
+NSEL, S, LOC, X, Length/2 - Length/10000, Length/2 + Length/10000
+NSEL, R, LOC, Y, Thickness/2 - Thickness/10000, Thickness/2 + Thickness/10000
+D, ALL, UY, -Displacement
+! And restrict UX
+ALLSEL, ALL
+NSEL, S, LOC, X, Length/2 - Length/10000, Length/2 + Length/10000
+NSEL, R, LOC, Y, Thickness/2 - Thickness/10000, Thickness/2 + Thickness/10000
+D, ALL, UX, 0
+!
+! Ask for results in all increments
+OUTRES, ALL, 1
+!
+! Everything is selected once again
+ALLSEL
+!
+! The load step is written and solved
+SOLVE
+!
+*GET, NumSubstepsFatigue, ACTIVE, 0, SOLU, NCMSS
+!
+!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SOLVING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!
+FINISH
