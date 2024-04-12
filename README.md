@@ -7,6 +7,8 @@ LICENSE:
 Copyright (c) 2023, Inigo Urcelay Oca, Siemens Gamesa RE, Aalborg University and Universitat de Girona 
 All rights reserved.
 
+This project is licensed under the terms of the GNU General Public License v3.0 license.
+
 The author would like to kindly emphasize that the following rules are respected when using the code. 
 * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, the code and publications describing the implemented models.
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
