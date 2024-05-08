@@ -51,18 +51,20 @@ The properties of the user-defined element, which will establish its behaviour, 
 An example of how to introduce the input can be found, for example, in the Fatigue_DNS.inp:
 
 > *NREAL = 20 ! Number of real constants*
-
+>
 > *NSAVEVARS = (NIntP**2)*20 ! Number of saved variables*
-
+>
 > *NRSLTVAR = 0 ! Number of variables saved in results files (not including stress and total strain data)*
-
+>
 > *REAL, 2*
-
+>
 > *R, 2, NIntP, IntMethodFlag, tauI, tauII, KStiffness, BKeta*
-
+>
 > *RMORE, GIc, GIIc, visc, ParisCI, ParisCII, ParisCm*
-
+>
 > *RMORE, ParismI, ParismII, Parismm, IncTargeta, sI, sII*
+>
+> RMORE, 1, InitiationLength 
 
 
  
