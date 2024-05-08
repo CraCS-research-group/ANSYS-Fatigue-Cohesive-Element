@@ -1,23 +1,16 @@
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !
 ! LICENSE: 
-! Copyright (c) 2023, Siemens Gamesa RE
+! Copyright (c) 2023, CraCS Research Group at Aalborg University, Siemens Gamesa RE, and Universitat de Girona
 ! All rights reserved.
 !
-! The author would like to kindly emphasize that the following rules are respected when using the code. 
-!   * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, 
-!   the code and publications describing the implemented models.
-!   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+! This project is licensed under the terms of the GNU Lesser General Public License v3.0 license.
 !
-! DISCLAIMER:
-! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-! SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-! POSSIBILITY OF SUCH DAMAGE.
-!
-! Please send your comments or questions to Inigo Urcelay Oca: iuoc@mp.aau.dk / inigo.oca@siemensgamesa.com 
+! The author would like to kindly emphasize that the following rules are respected when using the code:
+! 
+! * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, the 
+! code and publications describing the implemented models.
+! * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 !
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MODEL DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !
