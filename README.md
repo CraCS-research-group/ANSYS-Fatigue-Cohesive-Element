@@ -6,7 +6,7 @@ The code was developed at the CraCS research group at Aalborg University, Siemen
 
 LICENSE
 ---------------
-Copyright (c) 2023, CraCS Research Group, Siemens Gamesa RE, and Universitat de Girona 
+Copyright (c) 2023, CraCS Research Group at Aalborg University, Siemens Gamesa RE, and Universitat de Girona 
 All rights reserved.
 
 This project is licensed under the terms of the GNU Lesser General Public License v3.0 license.
