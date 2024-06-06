@@ -18,6 +18,7 @@ The author would like to kindly emphasize that the following rules are respected
 CONTENT
 ---------------
 This code repository contains the following files:
+* USERELEM.F: ANSYS Mechanical APDL subroutine to create a user-defined cohesive element
 * USERELEM_library_files: ANSYS files created after compiling and linking a user-element subroutine through the method of creating a dynamic library
 * Static_DD_DCB.inp: ANSYS Mechanical APDL input file to model a Double-Delamination Double Cantilever Beam (DD DCB) specimen under quasi-static loading
 * Fatigue_DCB.inp: ANSYS Mechanical APDL input file to model a Double Cantilever Beam (DCB) specimen under fatigue loading
@@ -25,6 +26,8 @@ This code repository contains the following files:
 * Fatigue_MMB.inp: ANSYS Mechanical APDL input file to model a Mixed Mode Bending (MMB) specimen under fatigue loading
 * Fatigue_DD_DCB.inp: ANSYS Mechanical APDL input file to model a Double-Delamination Double Cantilever Beam (DD DCB) specimen under fatigue loading
 * Fatigue_DNS.inp: ANSYS Mechanical APDL input file to model a Double-Notched Shear (DNS) specimen under fatigue loading
+* Fatigue_SBS.inp: ANSYS Mechanical APDL input file to model a Short Beam Shear (SBS) specimen under fatigue loading
+* Fatigue_3PB90.inp: ANSYS Mechanical APDL input file to model a Three-Point Bending on 90 degree laminate under fatigue loading
 
 HOW TO USE
 ---------------
