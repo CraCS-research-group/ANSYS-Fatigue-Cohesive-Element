@@ -77,16 +77,17 @@ ANSYS allows for some of the results within the subroutine to be saved as so-cal
 * SX. Mode I J-integral element contribution (N/mm).
 * SY. Mode II J-integral element contribution (N/mm).
 * SZ. Number of elements in the fracture process zone of the propagation crack region to which this element belongs in the case it does.
-* SXY. Derivative of the opening separation with respect to the crack growth.
-* SYZ. Derivative of the in-plane sliding separation with respect to the crack growth.
+* SXY. Derivative of the opening separation with respect to the crack growth (mm/mm).
+* SYZ. Derivative of the in-plane sliding separation with respect to the crack growth (mm/mm).
 * SXZ. Traction component in the first integration point in the opening direction (MPa).
 * SEQV. Traction component in the first integration point in the in-plane sliding direction (MPa).
 * EPTOX. Number of cycles.
 * EPTOY. Crack growth defined as total length of fully-damaged elements in the propagation crack region to which this element belongs in the case it does (mm).
 * EPTOZ. Mode I energy release rate GI associated to the propagation crack region to which this element belongs in the case it does (N/mm)
-* EPTOXY. Mode II energy release rate associated to the propagation crack region to which this element belongs in the case it does GI (N/mm)
-* EPTOYZ. Stiffness damage variable Dk in the first integration point.
-* EPTOXZ. Stiffness damage variable Dk in the last integration point.
+* EPTOXY. Mode II energy release rate associated to the propagation crack region to which this element belongs in the case it does (N/mm)
+* EPTOYZ. Number of the crack propagation region.
+* EPTOXZ. Stiffness damage variable Dk in the first integration point.
+* EPTOEQV. Stiffness damage variable Dk in the last integration point.
 
 DOCUMENTATION 
 ---------------
