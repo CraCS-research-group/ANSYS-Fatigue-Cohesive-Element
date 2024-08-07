@@ -91,6 +91,6 @@ ANSYS allows for some of the results within the subroutine to be saved as so-cal
 
 DOCUMENTATION 
 ---------------
-The associated journal paper (Urcelay Oca et al. An ANSYS user cohesive element for the modelling of fatigue initiation and propagation of delaminations in composite structures. Under review (2024) 2024;) contains a more in-depth description of the subroutine and the test cases.
+The associated journal paper (Urcelay Oca, I., Bak, B. L. V., Turon, A., & Lindgaard, E. (2024). An ANSYS user cohesive element for the modelling of fatigue initiation and propagation of delaminations in composite structures. Engineering Fracture Mechanics, 308, 110337. https://doi.org/10.1016/j.engfracmech.2024.110337) contains a more in-depth description of the subroutine and the test cases.
 
 Please send your comments or questions to Inigo Urcelay Oca: iuoc@mp.aau.dk / inigo.oca@siemensgamesa.com 
