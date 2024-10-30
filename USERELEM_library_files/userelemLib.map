@@ -1,12 +1,12 @@
  userelemLib
 
- Timestamp is 64faea62 (Fri Sep 08 11:33:22 2023)
+ Timestamp is 6721e3f6 (Wed Oct 30 08:44:54 2024)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
- 0001:00000000 00018974H .text                   CODE
- 0001:00018980 0000007bH .text$x                 CODE
+ 0001:00000000 00018c74H .text                   CODE
+ 0001:00018c80 0000007bH .text$x                 CODE
  0002:00000000 000001c8H .idata$5                DATA
  0002:000001c8 00000008H .CRT$XCA                DATA
  0002:000001d0 00000008H .CRT$XCU                DATA
@@ -15,20 +15,20 @@
  0002:000001e8 00000008H .CRT$XIAA               DATA
  0002:000001f0 00000008H .CRT$XIC                DATA
  0002:000001f8 00000008H .CRT$XIZ                DATA
- 0002:00000200 00001b20H .rdata                  DATA
- 0002:00001d20 00000008H .rtc$IAA                DATA
- 0002:00001d28 00000008H .rtc$IZZ                DATA
- 0002:00001d30 00000008H .rtc$TAA                DATA
- 0002:00001d38 00000008H .rtc$TZZ                DATA
- 0002:00001d40 00000844H .xdata                  DATA
- 0002:00002584 00000078H .idata$2                DATA
- 0002:000025fc 00000014H .idata$3                DATA
- 0002:00002610 000001c8H .idata$4                DATA
- 0002:000027d8 000003dcH .idata$6                DATA
- 0002:00002bc0 0000004bH .edata                  DATA
+ 0002:00000200 00001bc0H .rdata                  DATA
+ 0002:00001dc0 00000008H .rtc$IAA                DATA
+ 0002:00001dc8 00000008H .rtc$IZZ                DATA
+ 0002:00001dd0 00000008H .rtc$TAA                DATA
+ 0002:00001dd8 00000008H .rtc$TZZ                DATA
+ 0002:00001de0 000007fcH .xdata                  DATA
+ 0002:000025dc 00000078H .idata$2                DATA
+ 0002:00002654 00000014H .idata$3                DATA
+ 0002:00002668 000001c8H .idata$4                DATA
+ 0002:00002830 000003dcH .idata$6                DATA
+ 0002:00002c10 0000004bH .edata                  DATA
  0003:00000000 000016e0H .data                   DATA
- 0003:000016e0 0155dc48H .bss                    DATA
- 0004:00000000 000005e8H .pdata                  DATA
+ 0003:000016e0 0155dfa8H .bss                    DATA
+ 0004:00000000 000005b8H .pdata                  DATA
  0005:00000000 00001200H _RDATA                  DATA
  0006:00000000 00000058H .rsrc$01                DATA
  0006:00000060 00000180H .rsrc$02                DATA
@@ -40,95 +40,95 @@
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000000       MODULE_COHELEM.            0000000180001000 f   USERELEM.obj
  0001:00000010       USERELEM                   0000000180001010 f   USERELEM.obj
- 0001:00005c00       DAMAGE                     0000000180006c00 f   USERELEM.obj
- 0001:00007b40       DISPLACEMENTS              0000000180008b40 f   USERELEM.obj
- 0001:00008480       JACOBIAN                   0000000180009480 f   USERELEM.obj
- 0001:00008de0       SHAPEFUNC                  0000000180009de0 f   USERELEM.obj
- 0001:00009300       INTEGRATIONPOINTS          000000018000a300 f   USERELEM.obj
- 0001:0000a4f0       CRACKTIPIDENTIFICATION     000000018000b4f0 f   USERELEM.obj
- 0001:0000a5d0       JINTEGRALCALC              000000018000b5d0 f   USERELEM.obj
- 0001:0000a8c0       INTERNALFORCE              000000018000b8c0 f   USERELEM.obj
- 0001:0000af70       TANGENTSTIFFNESS           000000018000bf70 f   USERELEM.obj
- 0001:0000bfb0       SLOPES                     000000018000cfb0 f   USERELEM.obj
- 0001:0000c300       ADJUSTCYCLESPROPAGATION    000000018000d300 f   USERELEM.obj
- 0001:0000c4b0       CYCLESPROPAGATION          000000018000d4b0 f   USERELEM.obj
- 0001:0000c610       CRACKIDENTIFICATION        000000018000d610 f   USERELEM.obj
- 0001:0000cc00       PROPERTIES                 000000018000dc00 f   USERELEM.obj
- 0001:0000cd00       DAMAGEFATIGUE              000000018000dd00 f   USERELEM.obj
- 0001:0000d900       DAMAGESTATIC               000000018000e900 f   USERELEM.obj
- 0001:0000dbb0       RATES                      000000018000ebb0 f   USERELEM.obj
- 0001:0000dff0       INITIATIONVARIABLES        000000018000eff0 f   USERELEM.obj
- 0001:0000e180       FATIGUEINITIATION          000000018000f180 f   USERELEM.obj
- 0001:0000e830       ERHANDLER                  000000018000f830 f   ANSYS:ANSYS.exe
- 0001:0000e836       PPLOCK                     000000018000f836 f   ansOpenMP:ansOpenMP.dll
- 0001:0000e83c       PPUNLOCK                   000000018000f83c f   ansOpenMP:ansOpenMP.dll
- 0001:0000e842       for_check_mult_overflow64  000000018000f842 f   libifcoremd:libifcoremd.dll
- 0001:0000e848       for_alloc_allocatable      000000018000f848 f   libifcoremd:libifcoremd.dll
- 0001:0000e84e       for_dealloc_allocatable    000000018000f84e f   libifcoremd:libifcoremd.dll
- 0001:0000e854       pow                        000000018000f854 f   libmmd:libmmd.dll
- 0001:0000e870       _alloca_probe              000000018000f870     MSVCRT:chkstk.obj
- 0001:0000e870       __chkstk                   000000018000f870 f   MSVCRT:chkstk.obj
- 0001:0000e920       _CRT_INIT                  000000018000f920 f   MSVCRT:crtdll.obj
- 0001:0000eb6c       _DllMainCRTStartup         000000018000fb6c f   MSVCRT:crtdll.obj
- 0001:0000ece2       __CppXcptFilter            000000018000fce2 f   MSVCRT:MSVCR110.dll
- 0001:0000ece8       _amsg_exit                 000000018000fce8 f   MSVCRT:MSVCR110.dll
- 0001:0000ecf0       _FindPESection             000000018000fcf0 f   MSVCRT:pesect.obj
- 0001:0000ed40       _IsNonwritableInCurrentImage 000000018000fd40 f   MSVCRT:pesect.obj
- 0001:0000ed90       _ValidateImageBase         000000018000fd90 f   MSVCRT:pesect.obj
- 0001:0000edc0       __atonexitinit             000000018000fdc0 f   MSVCRT:atonexit.obj
- 0001:0000ee10       _onexit                    000000018000fe10 f   MSVCRT:atonexit.obj
- 0001:0000eec0       atexit                     000000018000fec0 f   MSVCRT:atonexit.obj
- 0001:0000eed8       __security_init_cookie     000000018000fed8 f   MSVCRT:gs_support.obj
- 0001:0000ef90       DllMain                    000000018000ff90 f   MSVCRT:dllmain.obj
- 0001:0000efb4       _RTC_Initialize            000000018000ffb4 f   MSVCRT:initsect.obj
- 0001:0000efec       _RTC_Terminate             000000018000ffec f   MSVCRT:initsect.obj
- 0001:0000f024       _initterm                  0000000180010024 f   MSVCRT:MSVCR110.dll
- 0001:0000f02a       _initterm_e                000000018001002a f   MSVCRT:MSVCR110.dll
- 0001:0000f030       __clean_type_info_names    0000000180010030 f   MSVCRT:tncleanup.obj
- 0001:0000f03c       __C_specific_handler       000000018001003c f   MSVCRT:MSVCR110.dll
- 0001:0000f042       _lock                      0000000180010042 f   MSVCRT:MSVCR110.dll
- 0001:0000f048       _unlock                    0000000180010048 f   MSVCRT:MSVCR110.dll
- 0001:0000f04e       __dllonexit                000000018001004e f   MSVCRT:MSVCR110.dll
- 0001:0000f054       __clean_type_info_names_internal 0000000180010054 f   MSVCRT:MSVCR110.dll
- 0001:0000f060       _intel_fast_memset.A       0000000180010060 f   libirc:fastmemset.obj
- 0001:0000f070       _intel_fast_memset.J       0000000180010070 f   libirc:fastmemset.obj
- 0001:0000f080       _intel_fast_memset.V       0000000180010080 f   libirc:fastmemset.obj
- 0001:0000f090       _intel_fast_memset.Z       0000000180010090 f   libirc:fastmemset.obj
- 0001:0000f0a0       _intel_fast_memset         00000001800100a0 f   libirc:fastmemset.obj
- 0001:0000f120       _intel_fast_memcpy.A       0000000180010120 f   libirc:fastmemcpy.obj
- 0001:0000f130       _intel_fast_memcpy.J       0000000180010130 f   libirc:fastmemcpy.obj
- 0001:0000f140       _intel_fast_memcpy.V       0000000180010140 f   libirc:fastmemcpy.obj
- 0001:0000f150       _intel_fast_memcpy.Z       0000000180010150 f   libirc:fastmemcpy.obj
- 0001:0000f160       _intel_fast_memcpy         0000000180010160 f   libirc:fastmemcpy.obj
- 0001:0000f1e0       __intel_new_memset         00000001800101e0 f   libirc:fast_memset.obj
- 0001:0000f1e0       __intel_memset             00000001800101e0 f   libirc:fast_memset.obj
- 0001:0000fbe0       __intel_avx_rep_memset     0000000180010be0 f   libirc:intel_avx_rep_memset.obj
- 0001:00010c40       __intel_mic_avx512f_memset 0000000180011c40 f   libirc:intel_mic_avx512f_memset.obj
- 0001:00012540       __intel_cpu_features_init  0000000180013540 f   libirc:cpu_feature_disp.obj
- 0001:00012ae0       __intel_memcpy             0000000180013ae0 f   libirc:fast_memcpy.obj
- 0001:00012ae0       __intel_new_memcpy         0000000180013ae0 f   libirc:fast_memcpy.obj
- 0001:00013b90       __intel_avx_rep_memcpy     0000000180014b90 f   libirc:intel_avx_rep_memcpy.obj
- 0001:00015440       __intel_mic_avx512f_memcpy 0000000180016440 f   libirc:intel_mic_avx512f_memcpy.obj
- 0001:00017720       __libirc_print             0000000180018720 f   libirc:irc_msg_support.obj
- 0001:000181c0       __intel_lib_wrappers_init  00000001800191c0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018750       memset                     0000000180019750 f   MSVCRT:MSVCR110.dll
- 0001:00018756       memcpy                     0000000180019756 f   MSVCRT:MSVCR110.dll
- 0001:00018770       __security_check_cookie    0000000180019770 f   MSVCRT:amdsecgs.obj
- 0001:00018790       __GSHandlerCheck           0000000180019790 f   MSVCRT:gshandler.obj
- 0001:000187b0       __GSHandlerCheckCommon     00000001800197b0 f   MSVCRT:gshandler.obj
- 0001:00018814       getenv                     0000000180019814 f   MSVCRT:MSVCR110.dll
- 0001:0001881a       exit                       000000018001981a f   MSVCRT:MSVCR110.dll
- 0001:00018820       strlen                     0000000180019820 f   MSVCRT:MSVCR110.dll
- 0001:00018826       strncpy                    0000000180019826 f   MSVCRT:MSVCR110.dll
- 0001:0001882c       strcat_s                   000000018001982c f   MSVCRT:MSVCR110.dll
- 0001:00018832       _errno                     0000000180019832 f   MSVCRT:MSVCR110.dll
- 0001:00018838       __raise_securityfailure    0000000180019838 f   MSVCRT:gs_report.obj
- 0001:00018884       __report_gsfailure         0000000180019884 f   MSVCRT:gs_report.obj
- 0001:00018956       __crt_debugger_hook        0000000180019956 f   MSVCRT:MSVCR110.dll
- 0001:0001895c       __crtUnhandledException    000000018001995c f   MSVCRT:MSVCR110.dll
- 0001:00018962       __crtTerminateProcess      0000000180019962 f   MSVCRT:MSVCR110.dll
- 0001:00018968       __crtCapturePreviousContext 0000000180019968 f   MSVCRT:MSVCR110.dll
- 0001:0001896e       IsProcessorFeaturePresent  000000018001996e f   kernel32:KERNEL32.dll
+ 0001:00005d80       DAMAGE                     0000000180006d80 f   USERELEM.obj
+ 0001:00007ca0       DISPLACEMENTS              0000000180008ca0 f   USERELEM.obj
+ 0001:000085e0       JACOBIAN                   00000001800095e0 f   USERELEM.obj
+ 0001:00008f40       SHAPEFUNC                  0000000180009f40 f   USERELEM.obj
+ 0001:00009460       INTEGRATIONPOINTS          000000018000a460 f   USERELEM.obj
+ 0001:0000a650       CRACKTIPIDENTIFICATION     000000018000b650 f   USERELEM.obj
+ 0001:0000a7f0       JINTEGRALCALC              000000018000b7f0 f   USERELEM.obj
+ 0001:0000aae0       INTERNALFORCE              000000018000bae0 f   USERELEM.obj
+ 0001:0000b190       TANGENTSTIFFNESS           000000018000c190 f   USERELEM.obj
+ 0001:0000c1d0       SLOPES                     000000018000d1d0 f   USERELEM.obj
+ 0001:0000c520       ADJUSTCYCLESPROPAGATION    000000018000d520 f   USERELEM.obj
+ 0001:0000c6d0       CYCLESPROPAGATION          000000018000d6d0 f   USERELEM.obj
+ 0001:0000c830       CRACKIDENTIFICATION        000000018000d830 f   USERELEM.obj
+ 0001:0000ce40       PROPERTIES                 000000018000de40 f   USERELEM.obj
+ 0001:0000cf40       DAMAGEFATIGUE              000000018000df40 f   USERELEM.obj
+ 0001:0000db70       DAMAGESTATIC               000000018000eb70 f   USERELEM.obj
+ 0001:0000de20       RATES                      000000018000ee20 f   USERELEM.obj
+ 0001:0000e260       INITIATIONVARIABLES        000000018000f260 f   USERELEM.obj
+ 0001:0000e3f0       FATIGUEINITIATION          000000018000f3f0 f   USERELEM.obj
+ 0001:0000eb40       ERHANDLER                  000000018000fb40 f   ANSYS:ANSYS.exe
+ 0001:0000eb46       PPLOCK                     000000018000fb46 f   ansOpenMP:ansOpenMP.dll
+ 0001:0000eb4c       PPUNLOCK                   000000018000fb4c f   ansOpenMP:ansOpenMP.dll
+ 0001:0000eb52       for_check_mult_overflow64  000000018000fb52 f   libifcoremd:libifcoremd.dll
+ 0001:0000eb58       for_alloc_allocatable      000000018000fb58 f   libifcoremd:libifcoremd.dll
+ 0001:0000eb5e       for_dealloc_allocatable    000000018000fb5e f   libifcoremd:libifcoremd.dll
+ 0001:0000eb64       pow                        000000018000fb64 f   libmmd:libmmd.dll
+ 0001:0000eb80       __chkstk                   000000018000fb80 f   MSVCRT:chkstk.obj
+ 0001:0000eb80       _alloca_probe              000000018000fb80     MSVCRT:chkstk.obj
+ 0001:0000ec30       _CRT_INIT                  000000018000fc30 f   MSVCRT:crtdll.obj
+ 0001:0000ee7c       _DllMainCRTStartup         000000018000fe7c f   MSVCRT:crtdll.obj
+ 0001:0000eff2       __CppXcptFilter            000000018000fff2 f   MSVCRT:MSVCR110.dll
+ 0001:0000eff8       _amsg_exit                 000000018000fff8 f   MSVCRT:MSVCR110.dll
+ 0001:0000f000       _FindPESection             0000000180010000 f   MSVCRT:pesect.obj
+ 0001:0000f050       _IsNonwritableInCurrentImage 0000000180010050 f   MSVCRT:pesect.obj
+ 0001:0000f0a0       _ValidateImageBase         00000001800100a0 f   MSVCRT:pesect.obj
+ 0001:0000f0d0       __atonexitinit             00000001800100d0 f   MSVCRT:atonexit.obj
+ 0001:0000f120       _onexit                    0000000180010120 f   MSVCRT:atonexit.obj
+ 0001:0000f1d0       atexit                     00000001800101d0 f   MSVCRT:atonexit.obj
+ 0001:0000f1e8       __security_init_cookie     00000001800101e8 f   MSVCRT:gs_support.obj
+ 0001:0000f2a0       DllMain                    00000001800102a0 f   MSVCRT:dllmain.obj
+ 0001:0000f2c4       _RTC_Initialize            00000001800102c4 f   MSVCRT:initsect.obj
+ 0001:0000f2fc       _RTC_Terminate             00000001800102fc f   MSVCRT:initsect.obj
+ 0001:0000f334       _initterm                  0000000180010334 f   MSVCRT:MSVCR110.dll
+ 0001:0000f33a       _initterm_e                000000018001033a f   MSVCRT:MSVCR110.dll
+ 0001:0000f340       __clean_type_info_names    0000000180010340 f   MSVCRT:tncleanup.obj
+ 0001:0000f34c       __C_specific_handler       000000018001034c f   MSVCRT:MSVCR110.dll
+ 0001:0000f352       _lock                      0000000180010352 f   MSVCRT:MSVCR110.dll
+ 0001:0000f358       _unlock                    0000000180010358 f   MSVCRT:MSVCR110.dll
+ 0001:0000f35e       __dllonexit                000000018001035e f   MSVCRT:MSVCR110.dll
+ 0001:0000f364       __clean_type_info_names_internal 0000000180010364 f   MSVCRT:MSVCR110.dll
+ 0001:0000f370       _intel_fast_memset.A       0000000180010370 f   libirc:fastmemset.obj
+ 0001:0000f380       _intel_fast_memset.J       0000000180010380 f   libirc:fastmemset.obj
+ 0001:0000f390       _intel_fast_memset.V       0000000180010390 f   libirc:fastmemset.obj
+ 0001:0000f3a0       _intel_fast_memset.Z       00000001800103a0 f   libirc:fastmemset.obj
+ 0001:0000f3b0       _intel_fast_memset         00000001800103b0 f   libirc:fastmemset.obj
+ 0001:0000f430       _intel_fast_memcpy.A       0000000180010430 f   libirc:fastmemcpy.obj
+ 0001:0000f440       _intel_fast_memcpy.J       0000000180010440 f   libirc:fastmemcpy.obj
+ 0001:0000f450       _intel_fast_memcpy.V       0000000180010450 f   libirc:fastmemcpy.obj
+ 0001:0000f460       _intel_fast_memcpy.Z       0000000180010460 f   libirc:fastmemcpy.obj
+ 0001:0000f470       _intel_fast_memcpy         0000000180010470 f   libirc:fastmemcpy.obj
+ 0001:0000f4f0       __intel_memset             00000001800104f0 f   libirc:fast_memset.obj
+ 0001:0000f4f0       __intel_new_memset         00000001800104f0 f   libirc:fast_memset.obj
+ 0001:0000fef0       __intel_avx_rep_memset     0000000180010ef0 f   libirc:intel_avx_rep_memset.obj
+ 0001:00010f40       __intel_mic_avx512f_memset 0000000180011f40 f   libirc:intel_mic_avx512f_memset.obj
+ 0001:00012840       __intel_cpu_features_init  0000000180013840 f   libirc:cpu_feature_disp.obj
+ 0001:00012de0       __intel_memcpy             0000000180013de0 f   libirc:fast_memcpy.obj
+ 0001:00012de0       __intel_new_memcpy         0000000180013de0 f   libirc:fast_memcpy.obj
+ 0001:00013e90       __intel_avx_rep_memcpy     0000000180014e90 f   libirc:intel_avx_rep_memcpy.obj
+ 0001:00015740       __intel_mic_avx512f_memcpy 0000000180016740 f   libirc:intel_mic_avx512f_memcpy.obj
+ 0001:00017a20       __libirc_print             0000000180018a20 f   libirc:irc_msg_support.obj
+ 0001:000184c0       __intel_lib_wrappers_init  00000001800194c0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018a50       memset                     0000000180019a50 f   MSVCRT:MSVCR110.dll
+ 0001:00018a56       memcpy                     0000000180019a56 f   MSVCRT:MSVCR110.dll
+ 0001:00018a70       __security_check_cookie    0000000180019a70 f   MSVCRT:amdsecgs.obj
+ 0001:00018a90       __GSHandlerCheck           0000000180019a90 f   MSVCRT:gshandler.obj
+ 0001:00018ab0       __GSHandlerCheckCommon     0000000180019ab0 f   MSVCRT:gshandler.obj
+ 0001:00018b14       getenv                     0000000180019b14 f   MSVCRT:MSVCR110.dll
+ 0001:00018b1a       exit                       0000000180019b1a f   MSVCRT:MSVCR110.dll
+ 0001:00018b20       strlen                     0000000180019b20 f   MSVCRT:MSVCR110.dll
+ 0001:00018b26       strncpy                    0000000180019b26 f   MSVCRT:MSVCR110.dll
+ 0001:00018b2c       strcat_s                   0000000180019b2c f   MSVCRT:MSVCR110.dll
+ 0001:00018b32       _errno                     0000000180019b32 f   MSVCRT:MSVCR110.dll
+ 0001:00018b38       __raise_securityfailure    0000000180019b38 f   MSVCRT:gs_report.obj
+ 0001:00018b84       __report_gsfailure         0000000180019b84 f   MSVCRT:gs_report.obj
+ 0001:00018c56       __crt_debugger_hook        0000000180019c56 f   MSVCRT:MSVCR110.dll
+ 0001:00018c5c       __crtUnhandledException    0000000180019c5c f   MSVCRT:MSVCR110.dll
+ 0001:00018c62       __crtTerminateProcess      0000000180019c62 f   MSVCRT:MSVCR110.dll
+ 0001:00018c68       __crtCapturePreviousContext 0000000180019c68 f   MSVCRT:MSVCR110.dll
+ 0001:00018c6e       IsProcessorFeaturePresent  0000000180019c6e f   kernel32:KERNEL32.dll
  0002:00000000       __imp_ERHANDLER            000000018001a000     ANSYS:ANSYS.exe
  0002:00000008       \177ANSYS_NULL_THUNK_DATA  000000018001a008     ANSYS:ANSYS.exe
  0002:00000010       __imp_IsDebuggerPresent    000000018001a010     kernel32:KERNEL32.dll
@@ -190,145 +190,145 @@
  0002:000001d8       __xc_z                     000000018001a1d8     MSVCRT:cinitexe.obj
  0002:000001e0       __xi_a                     000000018001a1e0     MSVCRT:cinitexe.obj
  0002:000001f8       __xi_z                     000000018001a1f8     MSVCRT:cinitexe.obj
- 0002:000008e0       _pDefaultRawDllMain        000000018001a8e0     MSVCRT:crtdll.obj
- 0002:000008e0       _pRawDllMain               000000018001a8e0     MSVCRT:crtdll.obj
- 0002:000008e8       ??_C@_0BF@A@__INTEL_LIBIRC_DEBUG?$AA@ 000000018001a8e8     libirc:fast_mem_ops.obj
- 0002:00000ce0       ??_C@_01A@?6?$AA@          000000018001ace0     libirc:irc_msg_support.obj
- 0002:00000ce4       ??_C@_0CO@A@Constant?5propagation?5error?5?$CI?$CFs?5substitution?$CJ?3?$AA@ 000000018001ace4     libirc:irc_msg_support.obj
- 0002:00000d14       ??_C@_06A@FORMAL?$AA@      000000018001ad14     libirc:irc_msg_support.obj
- 0002:00000d1c       ??_C@_06A@RETURN?$AA@      000000018001ad1c     libirc:irc_msg_support.obj
- 0002:00000d24       ??_C@_06A@GLOBAL?$AA@      000000018001ad24     libirc:irc_msg_support.obj
- 0002:00000d2c       ??_C@_0BA@A@?7I32?5?$CFlx?5?$CB?$DN?5?$CFlx?$AA@ 000000018001ad2c     libirc:irc_msg_support.obj
- 0002:00000d3c       ??_C@_0BB@A@?7SI32?5?$CFld?5?$CB?$DN?5?$CFld?$AA@ 000000018001ad3c     libirc:irc_msg_support.obj
- 0002:00000d50       ??_C@_0O@A@?7F32?5?$CFf?5?$CB?$DN?5?$CFf?$AA@ 000000018001ad50     libirc:irc_msg_support.obj
- 0002:00000d60       ??_C@_0BI@A@?7I64?5?$CFlx?3?$CFlx?5?$CB?$DN?5?$CFlx?3?$CFlx?$AA@ 000000018001ad60     libirc:irc_msg_support.obj
- 0002:00000d78       ??_C@_0BJ@A@?7SI64?5?$CFld?3?$CFld?5?$CB?$DN?5?$CFld?3?$CFld?$AA@ 000000018001ad78     libirc:irc_msg_support.obj
- 0002:00000d94       ??_C@_0O@A@?7F64?5?$CFf?5?$CB?$DN?5?$CFf?$AA@ 000000018001ad94     libirc:irc_msg_support.obj
- 0002:00000da4       ??_C@_0BE@A@Bad?5second?5argument?$AA@ 000000018001ada4     libirc:irc_msg_support.obj
- 0002:00000db8       ??_C@_0CH@A@Fatal?5Error?3?5Can?5not?5initiate?5the?5Heap?$AA@ 000000018001adb8     libirc:irc_msg_support.obj
- 0002:00000de0       ??_C@_0CB@A@Usage?3?5?$CFs?5input_file?5output_file?$AA@ 000000018001ade0     libirc:irc_msg_support.obj
- 0002:00000e04       ??_C@_0CL@A@Usage?3?5?$CFs?5segment_size?5input_file?5?$FL?9trace?$FN?$AA@ 000000018001ae04     libirc:irc_msg_support.obj
- 0002:00000e30       ??_C@_0DE@A@Conversion?5from?5text?5file?5?$CFs?5to?5binary?5?$CFs?5completed?$AA@ 000000018001ae30     libirc:irc_msg_support.obj
- 0002:00000e64       ??_C@_0BJ@A@segment_size?5?$DN?50x?$CFx?5?$DN?5?$CFd?$AA@ 000000018001ae64     libirc:irc_msg_support.obj
- 0002:00000e80       ??_C@_0DF@A@Cannot?5allocate?5memory?5to?5hold?5segment?5?$CIsize?5?$DN?50x?$CFx?$CJ?$AA@ 000000018001ae80     libirc:irc_msg_support.obj
- 0002:00000eb8       ??_C@_0BJ@A@Input?5file?3?5?$CFs?5corrupted?$AA@ 000000018001aeb8     libirc:irc_msg_support.obj
- 0002:00000ed4       ??_C@_0BE@A@routine_name?5?$DN?5?8?$CFs?8?$AA@ 000000018001aed4     libirc:irc_msg_support.obj
- 0002:00000ee8       ??_C@_0BE@A@file_name?5?5?5?5?$DN?5?8?$CFs?8?$AA@ 000000018001aee8     libirc:irc_msg_support.obj
- 0002:00000efc       ??_C@_0BE@A@prof_dir?5?5?5?5?5?$DN?5?8?$CFs?8?$AA@ 000000018001aefc     libirc:irc_msg_support.obj
- 0002:00000f10       ??_C@_0CP@A@Dynamic?5profile?5created?5from?5file?5?$CFs?5completed?$AA@ 000000018001af10     libirc:irc_msg_support.obj
- 0002:00000f40       ??_C@_0FA@A@Fatal?5Error?3?5This?5program?5was?5not?5built?5to?5run?5on?5the?5processor?5in?5your?5system?4?$AA@ 000000018001af40     libirc:irc_msg_support.obj
- 0002:00000fa0       ??_C@_0CA@A@The?5allowed?5processors?5are?3?5?$CFs?4?$AA@ 000000018001afa0     libirc:irc_msg_support.obj
- 0002:00000fc0       ??_C@_0FC@A@Run?9Time?5Check?5Failure?3?5The?5variable?5?8?$CFs?8?5is?5being?5used?5without?5being?5initialized?$AA@ 000000018001afc0     libirc:irc_msg_support.obj
- 0002:00001020       ??_C@_0CN@A@Error?3?5?5Buffer?5overrun?5occurred?0?5forced?5exit?$AA@ 000000018001b020     libirc:irc_msg_support.obj
- 0002:00001050       ??_C@_0DH@A@Initialization?5of?5symbol?5handler?5failed?4?5Error?5code?5?$CFd?$AA@ 000000018001b050     libirc:irc_msg_support.obj
- 0002:00001088       ??_C@_0BH@A@NTDLL?5module?5not?5found?$AA@ 000000018001b088     libirc:irc_msg_support.obj
- 0002:000010a0       ??_C@_0DC@A@RtlCaptureContext?5function?5not?5found?5in?5ntdll?4dll?$AA@ 000000018001b0a0     libirc:irc_msg_support.obj
- 0002:000010e0       ??_C@_0EB@A@?5Windows?5XP?564?9bit?5Edition?5Version?52003?5or?5newer?5should?5be?5used?4?$AA@ 000000018001b0e0     libirc:irc_msg_support.obj
- 0002:00001140       ??_C@_0DC@A@StackWalk?5is?5terminated?5abnormally?4?5Error?5code?5?$CFd?$AA@ 000000018001b140     libirc:irc_msg_support.obj
- 0002:00001174       ??_C@_0CJ@A@Exception?5is?5raised?5during?5stack?5walking?$AA@ 000000018001b174     libirc:irc_msg_support.obj
- 0002:000011a0       ??_C@_0BE@A@Signal?5?$CFs?5is?5raised?$AA@ 000000018001b1a0     libirc:irc_msg_support.obj
- 0002:000011b4       ??_C@_0BM@A@Signal?5?$CFs?5is?5raised?5at?50x?$CFp?$AA@ 000000018001b1b4     libirc:irc_msg_support.obj
- 0002:000011d0       ??_C@_07A@SIGSEGV?$AA@     000000018001b1d0     libirc:irc_msg_support.obj
- 0002:000011d8       ??_C@_06A@SIGILL?$AA@      000000018001b1d8     libirc:irc_msg_support.obj
- 0002:000011e0       ??_C@_06A@SIGBUS?$AA@      000000018001b1e0     libirc:irc_msg_support.obj
- 0002:000011e8       ??_C@_06A@SIGFPE?$AA@      000000018001b1e8     libirc:irc_msg_support.obj
- 0002:000011f0       ??_C@_07A@unknown?$AA@     000000018001b1f0     libirc:irc_msg_support.obj
- 0002:000011f8       ??_C@_08A@No?5error?$AA@   000000018001b1f8     libirc:irc_msg_support.obj
- 0002:00001204       ??_C@_0DM@A@You?5must?5link?5with?5libunwind?5to?5use?5traceback?5functionality?$AA@ 000000018001b204     libirc:irc_msg_support.obj
- 0002:00001240       ??_C@_0IL@A@Intel?$CIR?$CJ?5Core?$CITM?$CJ?5Duo?5processors?5and?5compatible?5Intel?5processors?5with?5supplemental?5Streaming?5SIMD?5Extensions?53?5?$CISSSE3?$CJ?5instruction?5support?$AA@ 000000018001b240     libirc:irc_msg_support.obj
- 0002:000012e0       ??_C@_0IE@A@Intel?$CIR?$CJ?5Pentium?$CIR?$CJ?54?5and?5compatible?5Intel?5processors?5with?5Intel?$CIR?$CJ?5Streaming?5SIMD?5Extensions?53?5?$CIIntel?$CIR?$CJ?5SSE3?$CJ?5instruction?5support?$AA@ 000000018001b2e0     libirc:irc_msg_support.obj
- 0002:00001380       ??_C@_0DG@A@Intel?$CIR?$CJ?5Pentium?$CIR?$CJ?5M?5and?5compatible?5Intel?5processors?$AA@ 000000018001b380     libirc:irc_msg_support.obj
- 0002:000013c0       ??_C@_0IH@A@Intel?$CIR?$CJ?5Pentium?$CIR?$CJ?54?5and?5compatible?5Intel?5processors?4?5Enables?5new?5optimizations?5in?5addition?5to?5Intel?5processor?9specific?5optimizations?$AA@ 000000018001b3c0     libirc:irc_msg_support.obj
- 0002:00001460       ??_C@_0DI@A@Intel?$CIR?$CJ?5processors?5with?5Swing?5New?5Instructions?5support?$AA@ 000000018001b460     libirc:irc_msg_support.obj
- 0002:000014a0       ??_C@_0EA@A@Intel?$CIR?$CJ?5processors?5with?5SSE4?42?5and?5POPCNT?5instructions?5support?$AA@ 000000018001b4a0     libirc:irc_msg_support.obj
- 0002:000014e0       ??_C@_0DE@A@Intel?$CIR?$CJ?5processors?5with?5MOVBE?5instructions?5support?$AA@ 000000018001b4e0     libirc:irc_msg_support.obj
- 0002:00001514       ??_C@_0DP@A@Fatal?5Error?3?5This?5program?5was?5not?5built?5to?5run?5in?5your?5system?4?$AA@ 000000018001b514     libirc:irc_msg_support.obj
- 0002:00001560       ??_C@_0FF@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5AVX?4?$AA@ 000000018001b560     libirc:irc_msg_support.obj
- 0002:000015c0       ??_C@_0HD@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5AVX?0?5F16C?5and?5RDRAND?5instructions?4?$AA@ 000000018001b5c0     libirc:irc_msg_support.obj
- 0002:00001640       ??_C@_0IB@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5AVX2?0?5BMI?0?5LZCNT?0?5HLE?0?5RTM?5and?5FMA?5instructions?4?$AA@ 000000018001b640     libirc:irc_msg_support.obj
- 0002:000016e0       ??_C@_0DC@A@Boundary?5Run?9Time?5Check?5Failure?5for?5variable?5?8?$CFs?8?$AA@ 000000018001b6e0     libirc:irc_msg_support.obj
- 0002:00001714       ??_C@_0CA@A@Boundary?5Run?9Time?5Check?5Failure?$AA@ 000000018001b714     libirc:irc_msg_support.obj
- 0002:00001734       ??_C@_0CC@A@Conversion?5Run?9Time?5Check?5Failure?$AA@ 000000018001b734     libirc:irc_msg_support.obj
- 0002:00001760       ??_C@_0GB@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5?$CFs?5instructions?4?$AA@ 000000018001b760     libirc:irc_msg_support.obj
- 0002:000017e0       ??_C@_05A@?5and?5?$AA@     000000018001b7e0     libirc:irc_msg_support.obj
- 0002:00001800       ??_C@_0FG@A@Please?5verify?5that?5your?5application?5was?5built?5with?5compatible?5Intel?$CIR?$CJ?5libirc?5library?$AA@ 000000018001b800     libirc:irc_msg_support.obj
- 0002:00001860       ??_C@_0EH@A@Use?5of?5incompatible?5or?5internally?5inconsistent?5Intel?$CIR?$CJ?5libirc?5library?$AA@ 000000018001b860     libirc:irc_msg_support.obj
- 0002:000018c0       ??_C@_0FI@A@Run?9Time?5Check?5Failure?3?5The?5variable?5?8?$CFs?8?5is?5being?5used?5in?5?$CFs?5without?5being?5initialized?$AA@ 000000018001b8c0     libirc:irc_msg_support.obj
- 0002:00001920       ??_C@_0GP@A@Cache?5size?5is?5incorrectly?5reported?5as?50?4?5Please?5engage?5your?5hardware?5and?1or?5OS?5support?5to?5address?5the?5problem?4?$AA@ 000000018001b920     libirc:irc_msg_support.obj
- 0002:000019a0       ??_C@_06A@?$CFlu?1?$CFs?$AA@ 000000018001b9a0     libirc:irc_msg_support.obj
- 0002:000019a8       ??_C@_0M@A@irc_msg?4dll?$AA@ 000000018001b9a8     libirc:irc_msg_support.obj
- 0002:000019b4       ??_C@_06A@?$CDdummy?$AA@   000000018001b9b4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019bc       ??_C@_07A@?$CDprintf?$AA@  000000018001b9bc     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019c4       ??_C@_09A@?$CDprintf_s?$AA@ 000000018001b9c4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019d0       ??_C@_0M@A@?$CD__iob_func?$AA@ 000000018001b9d0     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019dc       ??_C@_07A@?$CDfclose?$AA@  000000018001b9dc     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019e4       ??_C@_07A@?$CDfflush?$AA@  000000018001b9e4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019ec       ??_C@_06A@?$CDfopen?$AA@   000000018001b9ec     libirc:intel_lib_vs_wrappers_init.obj
- 0002:000019f4       ??_C@_08A@?$CDfopen_s?$AA@ 000000018001b9f4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a00       ??_C@_08A@?$CDfprintf?$AA@ 000000018001ba00     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a0c       ??_C@_0L@A@?$CDfprintf_s?$AA@ 000000018001ba0c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a18       ??_C@_09A@?$CDfwprintf?$AA@ 000000018001ba18     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a24       ??_C@_0M@A@?$CDfwprintf_s?$AA@ 000000018001ba24     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a30       ??_C@_0L@A@?$CD_snprintf?$AA@ 000000018001ba30     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a3c       ??_C@_0N@A@?$CD_snprintf_s?$AA@ 000000018001ba3c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a4c       ??_C@_08A@?$CDsprintf?$AA@ 000000018001ba4c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a58       ??_C@_0L@A@?$CDsprintf_s?$AA@ 000000018001ba58     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a64       ??_C@_07A@?$CDsscanf?$AA@  000000018001ba64     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a6c       ??_C@_09A@?$CDsscanf_s?$AA@ 000000018001ba6c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a78       ??_C@_0M@A@?$CDswprintf_s?$AA@ 000000018001ba78     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a84       ??_C@_09A@?$CDvfprintf?$AA@ 000000018001ba84     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a90       ??_C@_0M@A@?$CDvfprintf_s?$AA@ 000000018001ba90     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001a9c       ??_C@_08A@?$CDvprintf?$AA@ 000000018001ba9c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001aa8       ??_C@_0L@A@?$CDvprintf_s?$AA@ 000000018001baa8     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001ab4       ??_C@_0M@A@?$CD_vscprintf?$AA@ 000000018001bab4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001ac0       ??_C@_09A@?$CDvsprintf?$AA@ 000000018001bac0     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001acc       ??_C@_0M@A@?$CDvsprintf_s?$AA@ 000000018001bacc     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001ad8       ??_C@_0M@A@?$CD_vsnprintf?$AA@ 000000018001bad8     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001ae4       ??_C@_0O@A@?$CD_vsnprintf_s?$AA@ 000000018001bae4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001af4       ??_C@_0L@A@?$CDvswprintf?$AA@ 000000018001baf4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b00       ??_C@_08A@?$CDwprintf?$AA@ 000000018001bb00     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b0c       ??_C@_0L@A@?$CDwprintf_s?$AA@ 000000018001bb0c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b18       ??_C@_08A@?$CD_wfopen?$AA@ 000000018001bb18     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b24       ??_C@_0L@A@?$CD_wfopen_s?$AA@ 000000018001bb24     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b30       ??_C@_06A@?$CDfread?$AA@   000000018001bb30     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b38       ??_C@_07A@?$CDfwrite?$AA@  000000018001bb38     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b40       ??_C@_06A@?$CDfgets?$AA@   000000018001bb40     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b48       ??_C@_07A@?$CDfgetws?$AA@  000000018001bb48     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b50       ??_C@_06A@?$CDfgetc?$AA@   000000018001bb50     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b58       ??_C@_07A@?$CDfgetwc?$AA@  000000018001bb58     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b60       ??_C@_06A@?$CDfputs?$AA@   000000018001bb60     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b68       ??_C@_07A@?$CDfputws?$AA@  000000018001bb68     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b70       ??_C@_06A@?$CDfputc?$AA@   000000018001bb70     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b78       ??_C@_07A@?$CDfputwc?$AA@  000000018001bb78     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b80       ??_C@_06A@?$CDftell?$AA@   000000018001bb80     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b88       ??_C@_07A@?$CDferror?$AA@  000000018001bb88     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b90       ??_C@_08A@?$CDfreopen?$AA@ 000000018001bb90     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001b9c       ??_C@_0L@A@?$CDfreopen_s?$AA@ 000000018001bb9c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001ba8       ??_C@_0L@A@?$CD_wfreopen?$AA@ 000000018001bba8     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001bb4       ??_C@_07A@?$CDperror?$AA@  000000018001bbb4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001bbc       ??_C@_07A@?$CD_errno?$AA@  000000018001bbbc     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001bc4       ??_C@_0BB@A@?$CD__acrt_iob_func?$AA@ 000000018001bbc4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001bd8       ??_C@_0BJ@A@?$CD__stdio_common_vfprintf?$AA@ 000000018001bbd8     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001bf4       ??_C@_0BK@A@?$CD__stdio_common_vfwprintf?$AA@ 000000018001bbf4     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c10       ??_C@_0BJ@A@?$CD__stdio_common_vsprintf?$AA@ 000000018001bc10     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c2c       ??_C@_0BK@A@?$CD__stdio_common_vswprintf?$AA@ 000000018001bc2c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c48       ??_C@_0BI@A@?$CD__stdio_common_vsscanf?$AA@ 000000018001bc48     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c60       ??_C@_0N@A@ucrtbase?4dll?$AA@ 000000018001bc60     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c70       ??_C@_0L@A@msvcrt?4dll?$AA@ 000000018001bc70     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c7c       ??_C@_0L@A@SYSTEMROOT?$AA@ 000000018001bc7c     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001c88       ??_C@_0L@A@?2system32?2?$AA@ 000000018001bc88     libirc:intel_lib_vs_wrappers_init.obj
- 0002:00001cb0       _load_config_used          000000018001bcb0     MSVCRT:loadcfg.obj
- 0002:00001d20       __rtc_iaa                  000000018001bd20     MSVCRT:initsect.obj
- 0002:00001d28       __rtc_izz                  000000018001bd28     MSVCRT:initsect.obj
- 0002:00001d30       __rtc_taa                  000000018001bd30     MSVCRT:initsect.obj
- 0002:00001d38       __rtc_tzz                  000000018001bd38     MSVCRT:initsect.obj
- 0002:00002584       __IMPORT_DESCRIPTOR_ANSYS  000000018001c584     ANSYS:ANSYS.exe
- 0002:00002598       __IMPORT_DESCRIPTOR_ansOpenMP 000000018001c598     ansOpenMP:ansOpenMP.dll
- 0002:000025ac       __IMPORT_DESCRIPTOR_libifcoremd 000000018001c5ac     libifcoremd:libifcoremd.dll
- 0002:000025c0       __IMPORT_DESCRIPTOR_libmmd 000000018001c5c0     libmmd:libmmd.dll
- 0002:000025d4       __IMPORT_DESCRIPTOR_MSVCR110 000000018001c5d4     MSVCRT:MSVCR110.dll
- 0002:000025e8       __IMPORT_DESCRIPTOR_KERNEL32 000000018001c5e8     kernel32:KERNEL32.dll
- 0002:000025fc       __NULL_IMPORT_DESCRIPTOR   000000018001c5fc     ANSYS:ANSYS.exe
+ 0002:00000980       _pDefaultRawDllMain        000000018001a980     MSVCRT:crtdll.obj
+ 0002:00000980       _pRawDllMain               000000018001a980     MSVCRT:crtdll.obj
+ 0002:00000988       ??_C@_0BF@A@__INTEL_LIBIRC_DEBUG?$AA@ 000000018001a988     libirc:fast_mem_ops.obj
+ 0002:00000d80       ??_C@_01A@?6?$AA@          000000018001ad80     libirc:irc_msg_support.obj
+ 0002:00000d84       ??_C@_0CO@A@Constant?5propagation?5error?5?$CI?$CFs?5substitution?$CJ?3?$AA@ 000000018001ad84     libirc:irc_msg_support.obj
+ 0002:00000db4       ??_C@_06A@FORMAL?$AA@      000000018001adb4     libirc:irc_msg_support.obj
+ 0002:00000dbc       ??_C@_06A@RETURN?$AA@      000000018001adbc     libirc:irc_msg_support.obj
+ 0002:00000dc4       ??_C@_06A@GLOBAL?$AA@      000000018001adc4     libirc:irc_msg_support.obj
+ 0002:00000dcc       ??_C@_0BA@A@?7I32?5?$CFlx?5?$CB?$DN?5?$CFlx?$AA@ 000000018001adcc     libirc:irc_msg_support.obj
+ 0002:00000ddc       ??_C@_0BB@A@?7SI32?5?$CFld?5?$CB?$DN?5?$CFld?$AA@ 000000018001addc     libirc:irc_msg_support.obj
+ 0002:00000df0       ??_C@_0O@A@?7F32?5?$CFf?5?$CB?$DN?5?$CFf?$AA@ 000000018001adf0     libirc:irc_msg_support.obj
+ 0002:00000e00       ??_C@_0BI@A@?7I64?5?$CFlx?3?$CFlx?5?$CB?$DN?5?$CFlx?3?$CFlx?$AA@ 000000018001ae00     libirc:irc_msg_support.obj
+ 0002:00000e18       ??_C@_0BJ@A@?7SI64?5?$CFld?3?$CFld?5?$CB?$DN?5?$CFld?3?$CFld?$AA@ 000000018001ae18     libirc:irc_msg_support.obj
+ 0002:00000e34       ??_C@_0O@A@?7F64?5?$CFf?5?$CB?$DN?5?$CFf?$AA@ 000000018001ae34     libirc:irc_msg_support.obj
+ 0002:00000e44       ??_C@_0BE@A@Bad?5second?5argument?$AA@ 000000018001ae44     libirc:irc_msg_support.obj
+ 0002:00000e58       ??_C@_0CH@A@Fatal?5Error?3?5Can?5not?5initiate?5the?5Heap?$AA@ 000000018001ae58     libirc:irc_msg_support.obj
+ 0002:00000e80       ??_C@_0CB@A@Usage?3?5?$CFs?5input_file?5output_file?$AA@ 000000018001ae80     libirc:irc_msg_support.obj
+ 0002:00000ea4       ??_C@_0CL@A@Usage?3?5?$CFs?5segment_size?5input_file?5?$FL?9trace?$FN?$AA@ 000000018001aea4     libirc:irc_msg_support.obj
+ 0002:00000ed0       ??_C@_0DE@A@Conversion?5from?5text?5file?5?$CFs?5to?5binary?5?$CFs?5completed?$AA@ 000000018001aed0     libirc:irc_msg_support.obj
+ 0002:00000f04       ??_C@_0BJ@A@segment_size?5?$DN?50x?$CFx?5?$DN?5?$CFd?$AA@ 000000018001af04     libirc:irc_msg_support.obj
+ 0002:00000f20       ??_C@_0DF@A@Cannot?5allocate?5memory?5to?5hold?5segment?5?$CIsize?5?$DN?50x?$CFx?$CJ?$AA@ 000000018001af20     libirc:irc_msg_support.obj
+ 0002:00000f58       ??_C@_0BJ@A@Input?5file?3?5?$CFs?5corrupted?$AA@ 000000018001af58     libirc:irc_msg_support.obj
+ 0002:00000f74       ??_C@_0BE@A@routine_name?5?$DN?5?8?$CFs?8?$AA@ 000000018001af74     libirc:irc_msg_support.obj
+ 0002:00000f88       ??_C@_0BE@A@file_name?5?5?5?5?$DN?5?8?$CFs?8?$AA@ 000000018001af88     libirc:irc_msg_support.obj
+ 0002:00000f9c       ??_C@_0BE@A@prof_dir?5?5?5?5?5?$DN?5?8?$CFs?8?$AA@ 000000018001af9c     libirc:irc_msg_support.obj
+ 0002:00000fb0       ??_C@_0CP@A@Dynamic?5profile?5created?5from?5file?5?$CFs?5completed?$AA@ 000000018001afb0     libirc:irc_msg_support.obj
+ 0002:00000fe0       ??_C@_0FA@A@Fatal?5Error?3?5This?5program?5was?5not?5built?5to?5run?5on?5the?5processor?5in?5your?5system?4?$AA@ 000000018001afe0     libirc:irc_msg_support.obj
+ 0002:00001040       ??_C@_0CA@A@The?5allowed?5processors?5are?3?5?$CFs?4?$AA@ 000000018001b040     libirc:irc_msg_support.obj
+ 0002:00001060       ??_C@_0FC@A@Run?9Time?5Check?5Failure?3?5The?5variable?5?8?$CFs?8?5is?5being?5used?5without?5being?5initialized?$AA@ 000000018001b060     libirc:irc_msg_support.obj
+ 0002:000010c0       ??_C@_0CN@A@Error?3?5?5Buffer?5overrun?5occurred?0?5forced?5exit?$AA@ 000000018001b0c0     libirc:irc_msg_support.obj
+ 0002:000010f0       ??_C@_0DH@A@Initialization?5of?5symbol?5handler?5failed?4?5Error?5code?5?$CFd?$AA@ 000000018001b0f0     libirc:irc_msg_support.obj
+ 0002:00001128       ??_C@_0BH@A@NTDLL?5module?5not?5found?$AA@ 000000018001b128     libirc:irc_msg_support.obj
+ 0002:00001140       ??_C@_0DC@A@RtlCaptureContext?5function?5not?5found?5in?5ntdll?4dll?$AA@ 000000018001b140     libirc:irc_msg_support.obj
+ 0002:00001180       ??_C@_0EB@A@?5Windows?5XP?564?9bit?5Edition?5Version?52003?5or?5newer?5should?5be?5used?4?$AA@ 000000018001b180     libirc:irc_msg_support.obj
+ 0002:000011e0       ??_C@_0DC@A@StackWalk?5is?5terminated?5abnormally?4?5Error?5code?5?$CFd?$AA@ 000000018001b1e0     libirc:irc_msg_support.obj
+ 0002:00001214       ??_C@_0CJ@A@Exception?5is?5raised?5during?5stack?5walking?$AA@ 000000018001b214     libirc:irc_msg_support.obj
+ 0002:00001240       ??_C@_0BE@A@Signal?5?$CFs?5is?5raised?$AA@ 000000018001b240     libirc:irc_msg_support.obj
+ 0002:00001254       ??_C@_0BM@A@Signal?5?$CFs?5is?5raised?5at?50x?$CFp?$AA@ 000000018001b254     libirc:irc_msg_support.obj
+ 0002:00001270       ??_C@_07A@SIGSEGV?$AA@     000000018001b270     libirc:irc_msg_support.obj
+ 0002:00001278       ??_C@_06A@SIGILL?$AA@      000000018001b278     libirc:irc_msg_support.obj
+ 0002:00001280       ??_C@_06A@SIGBUS?$AA@      000000018001b280     libirc:irc_msg_support.obj
+ 0002:00001288       ??_C@_06A@SIGFPE?$AA@      000000018001b288     libirc:irc_msg_support.obj
+ 0002:00001290       ??_C@_07A@unknown?$AA@     000000018001b290     libirc:irc_msg_support.obj
+ 0002:00001298       ??_C@_08A@No?5error?$AA@   000000018001b298     libirc:irc_msg_support.obj
+ 0002:000012a4       ??_C@_0DM@A@You?5must?5link?5with?5libunwind?5to?5use?5traceback?5functionality?$AA@ 000000018001b2a4     libirc:irc_msg_support.obj
+ 0002:000012e0       ??_C@_0IL@A@Intel?$CIR?$CJ?5Core?$CITM?$CJ?5Duo?5processors?5and?5compatible?5Intel?5processors?5with?5supplemental?5Streaming?5SIMD?5Extensions?53?5?$CISSSE3?$CJ?5instruction?5support?$AA@ 000000018001b2e0     libirc:irc_msg_support.obj
+ 0002:00001380       ??_C@_0IE@A@Intel?$CIR?$CJ?5Pentium?$CIR?$CJ?54?5and?5compatible?5Intel?5processors?5with?5Intel?$CIR?$CJ?5Streaming?5SIMD?5Extensions?53?5?$CIIntel?$CIR?$CJ?5SSE3?$CJ?5instruction?5support?$AA@ 000000018001b380     libirc:irc_msg_support.obj
+ 0002:00001420       ??_C@_0DG@A@Intel?$CIR?$CJ?5Pentium?$CIR?$CJ?5M?5and?5compatible?5Intel?5processors?$AA@ 000000018001b420     libirc:irc_msg_support.obj
+ 0002:00001460       ??_C@_0IH@A@Intel?$CIR?$CJ?5Pentium?$CIR?$CJ?54?5and?5compatible?5Intel?5processors?4?5Enables?5new?5optimizations?5in?5addition?5to?5Intel?5processor?9specific?5optimizations?$AA@ 000000018001b460     libirc:irc_msg_support.obj
+ 0002:00001500       ??_C@_0DI@A@Intel?$CIR?$CJ?5processors?5with?5Swing?5New?5Instructions?5support?$AA@ 000000018001b500     libirc:irc_msg_support.obj
+ 0002:00001540       ??_C@_0EA@A@Intel?$CIR?$CJ?5processors?5with?5SSE4?42?5and?5POPCNT?5instructions?5support?$AA@ 000000018001b540     libirc:irc_msg_support.obj
+ 0002:00001580       ??_C@_0DE@A@Intel?$CIR?$CJ?5processors?5with?5MOVBE?5instructions?5support?$AA@ 000000018001b580     libirc:irc_msg_support.obj
+ 0002:000015b4       ??_C@_0DP@A@Fatal?5Error?3?5This?5program?5was?5not?5built?5to?5run?5in?5your?5system?4?$AA@ 000000018001b5b4     libirc:irc_msg_support.obj
+ 0002:00001600       ??_C@_0FF@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5AVX?4?$AA@ 000000018001b600     libirc:irc_msg_support.obj
+ 0002:00001660       ??_C@_0HD@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5AVX?0?5F16C?5and?5RDRAND?5instructions?4?$AA@ 000000018001b660     libirc:irc_msg_support.obj
+ 0002:000016e0       ??_C@_0IB@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5AVX2?0?5BMI?0?5LZCNT?0?5HLE?0?5RTM?5and?5FMA?5instructions?4?$AA@ 000000018001b6e0     libirc:irc_msg_support.obj
+ 0002:00001780       ??_C@_0DC@A@Boundary?5Run?9Time?5Check?5Failure?5for?5variable?5?8?$CFs?8?$AA@ 000000018001b780     libirc:irc_msg_support.obj
+ 0002:000017b4       ??_C@_0CA@A@Boundary?5Run?9Time?5Check?5Failure?$AA@ 000000018001b7b4     libirc:irc_msg_support.obj
+ 0002:000017d4       ??_C@_0CC@A@Conversion?5Run?9Time?5Check?5Failure?$AA@ 000000018001b7d4     libirc:irc_msg_support.obj
+ 0002:00001800       ??_C@_0GB@A@Please?5verify?5that?5both?5the?5operating?5system?5and?5the?5processor?5support?5Intel?$CIR?$CJ?5?$CFs?5instructions?4?$AA@ 000000018001b800     libirc:irc_msg_support.obj
+ 0002:00001880       ??_C@_05A@?5and?5?$AA@     000000018001b880     libirc:irc_msg_support.obj
+ 0002:000018a0       ??_C@_0FG@A@Please?5verify?5that?5your?5application?5was?5built?5with?5compatible?5Intel?$CIR?$CJ?5libirc?5library?$AA@ 000000018001b8a0     libirc:irc_msg_support.obj
+ 0002:00001900       ??_C@_0EH@A@Use?5of?5incompatible?5or?5internally?5inconsistent?5Intel?$CIR?$CJ?5libirc?5library?$AA@ 000000018001b900     libirc:irc_msg_support.obj
+ 0002:00001960       ??_C@_0FI@A@Run?9Time?5Check?5Failure?3?5The?5variable?5?8?$CFs?8?5is?5being?5used?5in?5?$CFs?5without?5being?5initialized?$AA@ 000000018001b960     libirc:irc_msg_support.obj
+ 0002:000019c0       ??_C@_0GP@A@Cache?5size?5is?5incorrectly?5reported?5as?50?4?5Please?5engage?5your?5hardware?5and?1or?5OS?5support?5to?5address?5the?5problem?4?$AA@ 000000018001b9c0     libirc:irc_msg_support.obj
+ 0002:00001a40       ??_C@_06A@?$CFlu?1?$CFs?$AA@ 000000018001ba40     libirc:irc_msg_support.obj
+ 0002:00001a48       ??_C@_0M@A@irc_msg?4dll?$AA@ 000000018001ba48     libirc:irc_msg_support.obj
+ 0002:00001a54       ??_C@_06A@?$CDdummy?$AA@   000000018001ba54     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a5c       ??_C@_07A@?$CDprintf?$AA@  000000018001ba5c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a64       ??_C@_09A@?$CDprintf_s?$AA@ 000000018001ba64     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a70       ??_C@_0M@A@?$CD__iob_func?$AA@ 000000018001ba70     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a7c       ??_C@_07A@?$CDfclose?$AA@  000000018001ba7c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a84       ??_C@_07A@?$CDfflush?$AA@  000000018001ba84     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a8c       ??_C@_06A@?$CDfopen?$AA@   000000018001ba8c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001a94       ??_C@_08A@?$CDfopen_s?$AA@ 000000018001ba94     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001aa0       ??_C@_08A@?$CDfprintf?$AA@ 000000018001baa0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001aac       ??_C@_0L@A@?$CDfprintf_s?$AA@ 000000018001baac     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001ab8       ??_C@_09A@?$CDfwprintf?$AA@ 000000018001bab8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001ac4       ??_C@_0M@A@?$CDfwprintf_s?$AA@ 000000018001bac4     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001ad0       ??_C@_0L@A@?$CD_snprintf?$AA@ 000000018001bad0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001adc       ??_C@_0N@A@?$CD_snprintf_s?$AA@ 000000018001badc     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001aec       ??_C@_08A@?$CDsprintf?$AA@ 000000018001baec     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001af8       ??_C@_0L@A@?$CDsprintf_s?$AA@ 000000018001baf8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b04       ??_C@_07A@?$CDsscanf?$AA@  000000018001bb04     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b0c       ??_C@_09A@?$CDsscanf_s?$AA@ 000000018001bb0c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b18       ??_C@_0M@A@?$CDswprintf_s?$AA@ 000000018001bb18     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b24       ??_C@_09A@?$CDvfprintf?$AA@ 000000018001bb24     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b30       ??_C@_0M@A@?$CDvfprintf_s?$AA@ 000000018001bb30     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b3c       ??_C@_08A@?$CDvprintf?$AA@ 000000018001bb3c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b48       ??_C@_0L@A@?$CDvprintf_s?$AA@ 000000018001bb48     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b54       ??_C@_0M@A@?$CD_vscprintf?$AA@ 000000018001bb54     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b60       ??_C@_09A@?$CDvsprintf?$AA@ 000000018001bb60     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b6c       ??_C@_0M@A@?$CDvsprintf_s?$AA@ 000000018001bb6c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b78       ??_C@_0M@A@?$CD_vsnprintf?$AA@ 000000018001bb78     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b84       ??_C@_0O@A@?$CD_vsnprintf_s?$AA@ 000000018001bb84     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001b94       ??_C@_0L@A@?$CDvswprintf?$AA@ 000000018001bb94     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001ba0       ??_C@_08A@?$CDwprintf?$AA@ 000000018001bba0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bac       ??_C@_0L@A@?$CDwprintf_s?$AA@ 000000018001bbac     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bb8       ??_C@_08A@?$CD_wfopen?$AA@ 000000018001bbb8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bc4       ??_C@_0L@A@?$CD_wfopen_s?$AA@ 000000018001bbc4     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bd0       ??_C@_06A@?$CDfread?$AA@   000000018001bbd0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bd8       ??_C@_07A@?$CDfwrite?$AA@  000000018001bbd8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001be0       ??_C@_06A@?$CDfgets?$AA@   000000018001bbe0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001be8       ??_C@_07A@?$CDfgetws?$AA@  000000018001bbe8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bf0       ??_C@_06A@?$CDfgetc?$AA@   000000018001bbf0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001bf8       ??_C@_07A@?$CDfgetwc?$AA@  000000018001bbf8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c00       ??_C@_06A@?$CDfputs?$AA@   000000018001bc00     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c08       ??_C@_07A@?$CDfputws?$AA@  000000018001bc08     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c10       ??_C@_06A@?$CDfputc?$AA@   000000018001bc10     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c18       ??_C@_07A@?$CDfputwc?$AA@  000000018001bc18     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c20       ??_C@_06A@?$CDftell?$AA@   000000018001bc20     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c28       ??_C@_07A@?$CDferror?$AA@  000000018001bc28     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c30       ??_C@_08A@?$CDfreopen?$AA@ 000000018001bc30     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c3c       ??_C@_0L@A@?$CDfreopen_s?$AA@ 000000018001bc3c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c48       ??_C@_0L@A@?$CD_wfreopen?$AA@ 000000018001bc48     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c54       ??_C@_07A@?$CDperror?$AA@  000000018001bc54     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c5c       ??_C@_07A@?$CD_errno?$AA@  000000018001bc5c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c64       ??_C@_0BB@A@?$CD__acrt_iob_func?$AA@ 000000018001bc64     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c78       ??_C@_0BJ@A@?$CD__stdio_common_vfprintf?$AA@ 000000018001bc78     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001c94       ??_C@_0BK@A@?$CD__stdio_common_vfwprintf?$AA@ 000000018001bc94     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001cb0       ??_C@_0BJ@A@?$CD__stdio_common_vsprintf?$AA@ 000000018001bcb0     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001ccc       ??_C@_0BK@A@?$CD__stdio_common_vswprintf?$AA@ 000000018001bccc     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001ce8       ??_C@_0BI@A@?$CD__stdio_common_vsscanf?$AA@ 000000018001bce8     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001d00       ??_C@_0N@A@ucrtbase?4dll?$AA@ 000000018001bd00     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001d10       ??_C@_0L@A@msvcrt?4dll?$AA@ 000000018001bd10     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001d1c       ??_C@_0L@A@SYSTEMROOT?$AA@ 000000018001bd1c     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001d28       ??_C@_0L@A@?2system32?2?$AA@ 000000018001bd28     libirc:intel_lib_vs_wrappers_init.obj
+ 0002:00001d50       _load_config_used          000000018001bd50     MSVCRT:loadcfg.obj
+ 0002:00001dc0       __rtc_iaa                  000000018001bdc0     MSVCRT:initsect.obj
+ 0002:00001dc8       __rtc_izz                  000000018001bdc8     MSVCRT:initsect.obj
+ 0002:00001dd0       __rtc_taa                  000000018001bdd0     MSVCRT:initsect.obj
+ 0002:00001dd8       __rtc_tzz                  000000018001bdd8     MSVCRT:initsect.obj
+ 0002:000025dc       __IMPORT_DESCRIPTOR_ANSYS  000000018001c5dc     ANSYS:ANSYS.exe
+ 0002:000025f0       __IMPORT_DESCRIPTOR_ansOpenMP 000000018001c5f0     ansOpenMP:ansOpenMP.dll
+ 0002:00002604       __IMPORT_DESCRIPTOR_libifcoremd 000000018001c604     libifcoremd:libifcoremd.dll
+ 0002:00002618       __IMPORT_DESCRIPTOR_libmmd 000000018001c618     libmmd:libmmd.dll
+ 0002:0000262c       __IMPORT_DESCRIPTOR_MSVCR110 000000018001c62c     MSVCRT:MSVCR110.dll
+ 0002:00002640       __IMPORT_DESCRIPTOR_KERNEL32 000000018001c640     kernel32:KERNEL32.dll
+ 0002:00002654       __NULL_IMPORT_DESCRIPTOR   000000018001c654     ANSYS:ANSYS.exe
  0003:00000b60       _fltused                   000000018001db60     MSVCRT:dllsupp.obj
  0003:00000b64       __native_dllmain_reason    000000018001db64     MSVCRT:natstart.obj
  0003:00000b68       __security_cookie          000000018001db68     MSVCRT:gs_cookie.obj
@@ -351,10 +351,10 @@
  0003:00002420       MODULE_COHELEM_mp_SUBSTEP  000000018001f420     <common>
  0003:00002440       MODULE_COHELEM_mp_CRACKTIP 000000018001f440     <common>
  0003:000024a0       MODULE_COHELEM_mp_CRACKNUMBERS 000000018001f4a0     <common>
- 0003:00063f20       MODULE_COHELEM_mp_NEIGHBOURS 0000000180080f20     <common>
- 0003:001ea920       MODULE_COHELEM_mp_JIS      0000000180207920     <common>
- 0003:0098bb20       MODULE_COHELEM_mp_JIIS     00000001809a8b20     <common>
- 0003:0112cd20       MODULE_COHELEM_mp_PROPCRACKS 0000000181149d20     <common>
+ 0003:00063f20       MODULE_COHELEM_mp_PROPCRACKS 0000000180080f20     <common>
+ 0003:00063f60       MODULE_COHELEM_mp_JIS      0000000180080f60     <common>
+ 0003:00805160       MODULE_COHELEM_mp_JIIS     0000000180822160     <common>
+ 0003:00fa6360       MODULE_COHELEM_mp_NEIGHBOURS 0000000180fc3360     <common>
  0003:0112cd60       MODULE_COHELEM_mp_DELTANINITELEM 0000000181149d60     <common>
  0003:011f0260       MODULE_COHELEM_mp_SEVERITYINITELEM 000000018120d260     <common>
  0003:012b3760       MODULE_COHELEM_mp_DINITELEM 00000001812d0760     <common>
@@ -369,209 +369,223 @@
  0003:01376e80       MODULE_COHELEM_mp_INITIATEDCRACK 0000000181393e80     <common>
  0003:013d8900       MODULE_COHELEM_mp_ELEMLENGTHS 00000001813f5900     <common>
  0003:0149be00       MODULE_COHELEM_mp_SLOPEINITELEM 00000001814b8e00     <common>
- 0003:0155f300       __native_startup_lock      000000018157c300     <common>
- 0003:0155f308       __native_startup_state     000000018157c308     <common>
- 0003:0155f310       __onexitend                000000018157c310     <common>
- 0003:0155f318       __onexitbegin              000000018157c318     <common>
- 0003:0155f320       __dyn_tls_init_callback    000000018157c320     <common>
+ 0003:0155f300       MODULE_COHELEM_mp_CPARISICRACK 000000018157c300     <common>
+ 0003:0155f360       MODULE_COHELEM_mp_CPARISIICRACK 000000018157c360     <common>
+ 0003:0155f3c0       MODULE_COHELEM_mp_CPARISMCRACK 000000018157c3c0     <common>
+ 0003:0155f420       MODULE_COHELEM_mp_MPARISICRACK 000000018157c420     <common>
+ 0003:0155f480       MODULE_COHELEM_mp_MPARISIICRACK 000000018157c480     <common>
+ 0003:0155f4e0       MODULE_COHELEM_mp_MPARISMCRACK 000000018157c4e0     <common>
+ 0003:0155f540       MODULE_COHELEM_mp_GICCRACK 000000018157c540     <common>
+ 0003:0155f5a0       MODULE_COHELEM_mp_GIICCRACK 000000018157c5a0     <common>
+ 0003:0155f600       MODULE_COHELEM_mp_BKETACRACK 000000018157c600     <common>
+ 0003:0155f660       __native_startup_lock      000000018157c660     <common>
+ 0003:0155f668       __native_startup_state     000000018157c668     <common>
+ 0003:0155f670       __onexitend                000000018157c670     <common>
+ 0003:0155f678       __onexitbegin              000000018157c678     <common>
+ 0003:0155f680       __dyn_tls_init_callback    000000018157c680     <common>
 
- entry point at        0001:0000eb6c
+ entry point at        0001:0000ee7c
 
  Static symbols
 
- 0001:000092c0       INTEGRATIONPOINTS..0       000000018000a2c0 f   USERELEM.obj
- 0001:0000e860       $$000000                   000000018000f860     MSVCRT:chkstk.obj
- 0001:0000e8c0       pre_c_init                 000000018000f8c0 f   MSVCRT:crtdll.obj
- 0001:0000ebac       __DllMainCRTStartup        000000018000fbac f   MSVCRT:crtdll.obj
- 0001:00012560       __intel_cpu_features_init_body 0000000180013560 f   libirc:cpu_feature_disp.obj
- 0001:00016f80       __sti____libirc_tmp        0000000180017f80 f   libirc:fast_mem_ops.obj
- 0001:00017a40       wrapper_sprintf_s          0000000180018a40 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017a80       wrapper_snprintf_s         0000000180018a80 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017ac0       wrapper_swprintf_s         0000000180018ac0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017b00       wrapper_vsprintf_s         0000000180018b00 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017b20       wrapper__vsnprintf_s       0000000180018b20 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017b50       wrapper_fopen_s            0000000180018b50 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017b90       wrapper_freopen_s          0000000180018b90 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017bd0       wrapper__wfopen_s          0000000180018bd0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017c10       wrapper_oc___iob_func      0000000180018c10 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017c20       wrapper_oc_printf          0000000180018c20 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017cc0       wrapper_oc_fprintf         0000000180018cc0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017d60       wrapper_oc_vprintf         0000000180018d60 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017de0       wrapper_oc_vfprintf        0000000180018de0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017e60       wrapper_oc_wprintf         0000000180018e60 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017f00       wrapper_oc_fwprintf        0000000180018f00 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00017fa0       wrapper_oc_sprintf         0000000180018fa0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018000       wrapper_oc__snprintf       0000000180019000 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018060       wrapper_oc_vsprintf        0000000180019060 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:000180a0       wrapper_oc__vsnprintf      00000001800190a0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:000180e0       wrapper_oc__vscprintf      00000001800190e0 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018120       wrapper_oc_vswprintf       0000000180019120 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018160       wrapper_oc_sscanf          0000000180019160 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018720       error__errno               0000000180019720 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018730       error_1                    0000000180019730 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018740       error_0                    0000000180019740 f   libirc:intel_lib_vs_wrappers_init.obj
- 0001:00018760       $$000000                   0000000180019760     MSVCRT:amdsecgs.obj
- 0001:00018980       __DllMainCRTStartup$filt$0 0000000180019980 f   MSVCRT:crtdll.obj
- 0001:000189a5       __DllMainCRTStartup$fin$1  00000001800199a5 f   MSVCRT:crtdll.obj
- 0001:000189c0       _IsNonwritableInCurrentImage$filt$0 00000001800199c0 f   MSVCRT:pesect.obj
- 0001:000189e0       _onexit$fin$0              00000001800199e0 f   MSVCRT:atonexit.obj
+ 0001:00009420       INTEGRATIONPOINTS..0       000000018000a420 f   USERELEM.obj
+ 0001:0000eb70       $$000000                   000000018000fb70     MSVCRT:chkstk.obj
+ 0001:0000ebd0       pre_c_init                 000000018000fbd0 f   MSVCRT:crtdll.obj
+ 0001:0000eebc       __DllMainCRTStartup        000000018000febc f   MSVCRT:crtdll.obj
+ 0001:00012860       __intel_cpu_features_init_body 0000000180013860 f   libirc:cpu_feature_disp.obj
+ 0001:00017280       __sti____libirc_tmp        0000000180018280 f   libirc:fast_mem_ops.obj
+ 0001:00017d40       wrapper_sprintf_s          0000000180018d40 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017d80       wrapper_snprintf_s         0000000180018d80 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017dc0       wrapper_swprintf_s         0000000180018dc0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017e00       wrapper_vsprintf_s         0000000180018e00 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017e20       wrapper__vsnprintf_s       0000000180018e20 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017e50       wrapper_fopen_s            0000000180018e50 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017e90       wrapper_freopen_s          0000000180018e90 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017ed0       wrapper__wfopen_s          0000000180018ed0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017f10       wrapper_oc___iob_func      0000000180018f10 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017f20       wrapper_oc_printf          0000000180018f20 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00017fc0       wrapper_oc_fprintf         0000000180018fc0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018060       wrapper_oc_vprintf         0000000180019060 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:000180e0       wrapper_oc_vfprintf        00000001800190e0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018160       wrapper_oc_wprintf         0000000180019160 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018200       wrapper_oc_fwprintf        0000000180019200 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:000182a0       wrapper_oc_sprintf         00000001800192a0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018300       wrapper_oc__snprintf       0000000180019300 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018360       wrapper_oc_vsprintf        0000000180019360 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:000183a0       wrapper_oc__vsnprintf      00000001800193a0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:000183e0       wrapper_oc__vscprintf      00000001800193e0 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018420       wrapper_oc_vswprintf       0000000180019420 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018460       wrapper_oc_sscanf          0000000180019460 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018a20       error__errno               0000000180019a20 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018a30       error_1                    0000000180019a30 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018a40       error_0                    0000000180019a40 f   libirc:intel_lib_vs_wrappers_init.obj
+ 0001:00018a60       $$000000                   0000000180019a60     MSVCRT:amdsecgs.obj
+ 0001:00018c80       __DllMainCRTStartup$filt$0 0000000180019c80 f   MSVCRT:crtdll.obj
+ 0001:00018ca5       __DllMainCRTStartup$fin$1  0000000180019ca5 f   MSVCRT:crtdll.obj
+ 0001:00018cc0       _IsNonwritableInCurrentImage$filt$0 0000000180019cc0 f   MSVCRT:pesect.obj
+ 0001:00018ce0       _onexit$fin$0              0000000180019ce0 f   MSVCRT:atonexit.obj
  0002:000001e8       pcinit                     000000018001a1e8     MSVCRT:crtdll.obj
  0002:000001f0       pinit                      000000018001a1f0     MSVCRT:atonexit.obj
  0002:00000200       __NLITPACK_0.0.2           000000018001a200     USERELEM.obj
- 0002:00000204       __NLITPACK_7.0.13          000000018001a204     USERELEM.obj
- 0002:00000208       __NLITPACK_8.0.13          000000018001a208     USERELEM.obj
- 0002:0000020c       __NLITPACK_5.0.10          000000018001a20c     USERELEM.obj
- 0002:00000210       __NLITPACK_6.0.10          000000018001a210     USERELEM.obj
- 0002:000002e0       __STRLITPACK_7             000000018001a2e0     USERELEM.obj
- 0002:00000360       __STRLITPACK_19            000000018001a360     USERELEM.obj
- 0002:000003c0       __STRLITPACK_16            000000018001a3c0     USERELEM.obj
- 0002:00000440       __STRLITPACK_13            000000018001a440     USERELEM.obj
- 0002:00000500       __STRLITPACK_10            000000018001a500     USERELEM.obj
- 0002:00000580       __STRLITPACK_1             000000018001a580     USERELEM.obj
- 0002:00000610       _2il0floatpacket.4         000000018001a610     USERELEM.obj
- 0002:00000620       _2il0floatpacket.8         000000018001a620     USERELEM.obj
- 0002:00000630       _2il0floatpacket.11        000000018001a630     USERELEM.obj
- 0002:00000640       _2il0floatpacket.12        000000018001a640     USERELEM.obj
- 0002:00000650       _2il0floatpacket.33        000000018001a650     USERELEM.obj
- 0002:00000660       _2il0floatpacket.40        000000018001a660     USERELEM.obj
- 0002:00000670       _2il0floatpacket.41        000000018001a670     USERELEM.obj
- 0002:00000680       _2il0floatpacket.44        000000018001a680     USERELEM.obj
- 0002:00000690       _2il0floatpacket.45        000000018001a690     USERELEM.obj
- 0002:000006a0       _2il0floatpacket.46        000000018001a6a0     USERELEM.obj
- 0002:000006b0       _2il0floatpacket.47        000000018001a6b0     USERELEM.obj
- 0002:000006c0       _2il0floatpacket.0         000000018001a6c0     USERELEM.obj
- 0002:000006c8       _2il0floatpacket.1         000000018001a6c8     USERELEM.obj
- 0002:000006d0       _2il0floatpacket.2         000000018001a6d0     USERELEM.obj
- 0002:000006d8       _2il0floatpacket.3         000000018001a6d8     USERELEM.obj
- 0002:000006e0       _2il0floatpacket.5         000000018001a6e0     USERELEM.obj
- 0002:000006e8       _2il0floatpacket.6         000000018001a6e8     USERELEM.obj
- 0002:000006f0       _2il0floatpacket.7         000000018001a6f0     USERELEM.obj
- 0002:000006f8       _2il0floatpacket.9         000000018001a6f8     USERELEM.obj
- 0002:00000700       _2il0floatpacket.10        000000018001a700     USERELEM.obj
- 0002:00000708       _2il0floatpacket.13        000000018001a708     USERELEM.obj
- 0002:00000710       _2il0floatpacket.14        000000018001a710     USERELEM.obj
- 0002:00000718       _2il0floatpacket.15        000000018001a718     USERELEM.obj
- 0002:00000720       _2il0floatpacket.16        000000018001a720     USERELEM.obj
- 0002:00000728       _2il0floatpacket.17        000000018001a728     USERELEM.obj
- 0002:00000730       _2il0floatpacket.18        000000018001a730     USERELEM.obj
- 0002:00000738       _2il0floatpacket.19        000000018001a738     USERELEM.obj
- 0002:00000740       _2il0floatpacket.20        000000018001a740     USERELEM.obj
- 0002:00000748       _2il0floatpacket.21        000000018001a748     USERELEM.obj
- 0002:00000750       _2il0floatpacket.22        000000018001a750     USERELEM.obj
- 0002:00000758       _2il0floatpacket.23        000000018001a758     USERELEM.obj
- 0002:00000760       _2il0floatpacket.24        000000018001a760     USERELEM.obj
- 0002:00000768       _2il0floatpacket.25        000000018001a768     USERELEM.obj
- 0002:00000770       _2il0floatpacket.26        000000018001a770     USERELEM.obj
- 0002:00000778       _2il0floatpacket.27        000000018001a778     USERELEM.obj
- 0002:00000780       _2il0floatpacket.28        000000018001a780     USERELEM.obj
- 0002:00000788       _2il0floatpacket.29        000000018001a788     USERELEM.obj
- 0002:00000790       _2il0floatpacket.30        000000018001a790     USERELEM.obj
- 0002:00000798       _2il0floatpacket.31        000000018001a798     USERELEM.obj
- 0002:000007a0       _2il0floatpacket.32        000000018001a7a0     USERELEM.obj
- 0002:000007a8       _2il0floatpacket.34        000000018001a7a8     USERELEM.obj
- 0002:000007b0       _2il0floatpacket.35        000000018001a7b0     USERELEM.obj
- 0002:000007b8       _2il0floatpacket.36        000000018001a7b8     USERELEM.obj
- 0002:000007c0       _2il0floatpacket.37        000000018001a7c0     USERELEM.obj
- 0002:000007c8       _2il0floatpacket.38        000000018001a7c8     USERELEM.obj
- 0002:000007d0       _2il0floatpacket.39        000000018001a7d0     USERELEM.obj
- 0002:000007d8       _2il0floatpacket.42        000000018001a7d8     USERELEM.obj
- 0002:000007e0       _2il0floatpacket.43        000000018001a7e0     USERELEM.obj
- 0002:000007e8       _2il0floatpacket.48        000000018001a7e8     USERELEM.obj
- 0002:000007f0       __NLITPACK_1.0.8           000000018001a7f0     USERELEM.obj
- 0002:000007f4       __NLITPACK_2.0.8           000000018001a7f4     USERELEM.obj
- 0002:000007f8       __STRLITPACK_8             000000018001a7f8     USERELEM.obj
- 0002:00000804       __STRLITPACK_6             000000018001a804     USERELEM.obj
- 0002:00000808       __STRLITPACK_23            000000018001a808     USERELEM.obj
- 0002:00000814       __NLITPACK_9.0.16          000000018001a814     USERELEM.obj
- 0002:00000818       __NLITPACK_10.0.16         000000018001a818     USERELEM.obj
- 0002:0000081c       __STRLITPACK_22            000000018001a81c     USERELEM.obj
- 0002:00000830       __STRLITPACK_21            000000018001a830     USERELEM.obj
- 0002:00000834       __STRLITPACK_20            000000018001a834     USERELEM.obj
- 0002:00000840       __NLITPACK_11.0.16         000000018001a840     USERELEM.obj
- 0002:00000844       __NLITPACK_12.0.16         000000018001a844     USERELEM.obj
- 0002:00000848       __STRLITPACK_18            000000018001a848     USERELEM.obj
- 0002:0000084c       __STRLITPACK_17            000000018001a84c     USERELEM.obj
- 0002:00000858       __NLITPACK_13.0.16         000000018001a858     USERELEM.obj
- 0002:0000085c       __STRLITPACK_15            000000018001a85c     USERELEM.obj
- 0002:00000860       __STRLITPACK_12            000000018001a860     USERELEM.obj
- 0002:00000864       __NLITPACK_14.0.16         000000018001a864     USERELEM.obj
- 0002:00000868       __STRLITPACK_14            000000018001a868     USERELEM.obj
- 0002:00000874       __STRLITPACK_11            000000018001a874     USERELEM.obj
- 0002:00000880       __NLITPACK_15.0.16         000000018001a880     USERELEM.obj
- 0002:00000884       __STRLITPACK_9             000000018001a884     USERELEM.obj
- 0002:00000888       __STRLITPACK_5             000000018001a888     USERELEM.obj
- 0002:00000894       __STRLITPACK_4             000000018001a894     USERELEM.obj
- 0002:000008c4       __STRLITPACK_3             000000018001a8c4     USERELEM.obj
- 0002:000008c8       __STRLITPACK_0             000000018001a8c8     USERELEM.obj
- 0002:000008cc       __STRLITPACK_2             000000018001a8cc     USERELEM.obj
- 0002:000008d8       __NLITPACK_4.0.9           000000018001a8d8     USERELEM.obj
- 0002:000008dc       __NLITPACK_3.0.9           000000018001a8dc     USERELEM.obj
- 0002:00000900       irc_msgtab                 000000018001a900     libirc:irc_msg_support.obj
- 0002:00001c98       GS_ExceptionPointers       000000018001bc98     MSVCRT:gs_report.obj
- 0002:00002170       $xdatasym                  000000018001c170     MSVCRT:chkstk.obj
- 0002:00002178       $unwind$_CRT_INIT          000000018001c178     MSVCRT:crtdll.obj
- 0002:00002194       $unwind$__DllMainCRTStartup 000000018001c194     MSVCRT:crtdll.obj
- 0002:000021d0       $unwind$_DllMainCRTStartup 000000018001c1d0     MSVCRT:crtdll.obj
- 0002:000021e0       $unwind$_IsNonwritableInCurrentImage 000000018001c1e0     MSVCRT:pesect.obj
- 0002:00002204       $unwind$__DllMainCRTStartup$fin$1 000000018001c204     MSVCRT:pesect.obj
- 0002:00002204       $unwind$_IsNonwritableInCurrentImage$filt$0 000000018001c204     MSVCRT:pesect.obj
- 0002:00002204       $unwind$__DllMainCRTStartup$filt$0 000000018001c204     MSVCRT:pesect.obj
- 0002:00002204       $unwind$_onexit$fin$0      000000018001c204     MSVCRT:pesect.obj
- 0002:0000220c       $unwind$_onexit            000000018001c20c     MSVCRT:atonexit.obj
- 0002:0000222c       $unwind$__security_init_cookie 000000018001c22c     MSVCRT:gs_support.obj
- 0002:00002238       $unwind$_RTC_Terminate     000000018001c238     MSVCRT:initsect.obj
- 0002:00002238       $unwind$_RTC_Initialize    000000018001c238     MSVCRT:initsect.obj
- 0002:00002568       $xdatasym                  000000018001c568     MSVCRT:amdsecgs.obj
- 0002:0000256c       $unwind$__atonexitinit     000000018001c56c     MSVCRT:gshandler.obj
- 0002:0000256c       $unwind$pre_c_init         000000018001c56c     MSVCRT:gshandler.obj
- 0002:0000256c       $unwind$__raise_securityfailure 000000018001c56c     MSVCRT:gshandler.obj
- 0002:0000256c       $unwind$__GSHandlerCheckCommon 000000018001c56c     MSVCRT:gshandler.obj
- 0002:00002574       $unwind$__GSHandlerCheck   000000018001c574     MSVCRT:gshandler.obj
- 0002:00002574       $unwind$DllMain            000000018001c574     MSVCRT:gshandler.obj
- 0002:00002574       $unwind$atexit             000000018001c574     MSVCRT:gshandler.obj
- 0002:0000257c       $unwind$__report_gsfailure 000000018001c57c     MSVCRT:gs_report.obj
- 0002:000027e4       .idata$6                   000000018001c7e4     ANSYS:ANSYS.exe
- 0002:00002804       .idata$6                   000000018001c804     ansOpenMP:ansOpenMP.dll
- 0002:00002860       .idata$6                   000000018001c860     libifcoremd:libifcoremd.dll
- 0002:00002876       .idata$6                   000000018001c876     libmmd:libmmd.dll
- 0002:000028ea       .idata$6                   000000018001c8ea     MSVCRT:MSVCR110.dll
- 0002:00002ac0       .idata$6                   000000018001cac0     kernel32:KERNEL32.dll
- 0002:00002bc0       .edata                     000000018001cbc0     userelemLib.exp
- 0002:00002be8       rgpv                       000000018001cbe8     userelemLib.exp
- 0002:00002bec       rgszName                   000000018001cbec     userelemLib.exp
- 0002:00002bf0       rgwOrd                     000000018001cbf0     userelemLib.exp
- 0002:00002bf2       szName                     000000018001cbf2     userelemLib.exp
- 0002:00002c02       $N00001                    000000018001cc02     userelemLib.exp
- 0003:00000000       .T944_.0.9                 000000018001d000     USERELEM.obj
- 0003:00000180       .T950_.0.9                 000000018001d180     USERELEM.obj
- 0003:00000300       .T932_.0.9                 000000018001d300     USERELEM.obj
- 0003:00000420       .T938_.0.9                 000000018001d420     USERELEM.obj
- 0003:00000540       .T920_.0.9                 000000018001d540     USERELEM.obj
- 0003:00000620       .T926_.0.9                 000000018001d620     USERELEM.obj
- 0003:00000700       .T908_.0.9                 000000018001d700     USERELEM.obj
- 0003:00000780       .T914_.0.9                 000000018001d780     USERELEM.obj
- 0003:00000800       .T896_.0.9                 000000018001d800     USERELEM.obj
- 0003:00000860       .T902_.0.9                 000000018001d860     USERELEM.obj
- 0003:000008b0       .T884_.0.9                 000000018001d8b0     USERELEM.obj
- 0003:000008f0       .T890_.0.9                 000000018001d8f0     USERELEM.obj
- 0003:00000930       .T872_.0.9                 000000018001d930     USERELEM.obj
- 0003:00000960       .T878_.0.9                 000000018001d960     USERELEM.obj
- 0003:00000990       .T860_.0.9                 000000018001d990     USERELEM.obj
- 0003:000009c0       .T866_.0.9                 000000018001d9c0     USERELEM.obj
- 0003:000009f0       .T848_.0.9                 000000018001d9f0     USERELEM.obj
- 0003:00000a10       .T854_.0.9                 000000018001da10     USERELEM.obj
- 0003:00000a30       .T836_.0.9                 000000018001da30     USERELEM.obj
- 0003:00000a50       .T842_.0.9                 000000018001da50     USERELEM.obj
- 0003:00000a70       .T824_.0.9                 000000018001da70     USERELEM.obj
- 0003:00000a90       .T830_.0.9                 000000018001da90     USERELEM.obj
- 0003:00000ab0       .T812_.0.9                 000000018001dab0     USERELEM.obj
- 0003:00000ad0       .T818_.0.9                 000000018001dad0     USERELEM.obj
- 0003:00000af0       .T800_.0.9                 000000018001daf0     USERELEM.obj
- 0003:00000b00       .T806_.0.9                 000000018001db00     USERELEM.obj
- 0003:00000b10       .T788_.0.9                 000000018001db10     USERELEM.obj
- 0003:00000b20       .T794_.0.9                 000000018001db20     USERELEM.obj
- 0003:00000b30       .T776_.0.9                 000000018001db30     USERELEM.obj
- 0003:00000b40       .T782_.0.9                 000000018001db40     USERELEM.obj
+ 0002:00000204       __NLITPACK_9.0.13          000000018001a204     USERELEM.obj
+ 0002:00000208       __NLITPACK_10.0.13         000000018001a208     USERELEM.obj
+ 0002:0000020c       __NLITPACK_7.0.10          000000018001a20c     USERELEM.obj
+ 0002:00000210       __NLITPACK_8.0.10          000000018001a210     USERELEM.obj
+ 0002:000002c8       __NLITPACK_1.0.7           000000018001a2c8     USERELEM.obj
+ 0002:000002cc       __NLITPACK_2.0.7           000000018001a2cc     USERELEM.obj
+ 0002:000002e0       __STRLITPACK_10            000000018001a2e0     USERELEM.obj
+ 0002:00000360       __STRLITPACK_22            000000018001a360     USERELEM.obj
+ 0002:000003e0       __STRLITPACK_19            000000018001a3e0     USERELEM.obj
+ 0002:00000460       __STRLITPACK_16            000000018001a460     USERELEM.obj
+ 0002:00000520       __STRLITPACK_13            000000018001a520     USERELEM.obj
+ 0002:000005a0       __STRLITPACK_4             000000018001a5a0     USERELEM.obj
+ 0002:00000640       __STRLITPACK_1             000000018001a640     USERELEM.obj
+ 0002:000006a0       _2il0floatpacket.4         000000018001a6a0     USERELEM.obj
+ 0002:000006b0       _2il0floatpacket.8         000000018001a6b0     USERELEM.obj
+ 0002:000006c0       _2il0floatpacket.11        000000018001a6c0     USERELEM.obj
+ 0002:000006d0       _2il0floatpacket.12        000000018001a6d0     USERELEM.obj
+ 0002:000006e0       _2il0floatpacket.33        000000018001a6e0     USERELEM.obj
+ 0002:000006f0       _2il0floatpacket.40        000000018001a6f0     USERELEM.obj
+ 0002:00000700       _2il0floatpacket.41        000000018001a700     USERELEM.obj
+ 0002:00000710       _2il0floatpacket.44        000000018001a710     USERELEM.obj
+ 0002:00000720       _2il0floatpacket.45        000000018001a720     USERELEM.obj
+ 0002:00000730       _2il0floatpacket.46        000000018001a730     USERELEM.obj
+ 0002:00000740       _2il0floatpacket.47        000000018001a740     USERELEM.obj
+ 0002:00000750       _2il0floatpacket.0         000000018001a750     USERELEM.obj
+ 0002:00000758       _2il0floatpacket.1         000000018001a758     USERELEM.obj
+ 0002:00000760       _2il0floatpacket.2         000000018001a760     USERELEM.obj
+ 0002:00000768       _2il0floatpacket.3         000000018001a768     USERELEM.obj
+ 0002:00000770       _2il0floatpacket.5         000000018001a770     USERELEM.obj
+ 0002:00000778       _2il0floatpacket.6         000000018001a778     USERELEM.obj
+ 0002:00000780       _2il0floatpacket.7         000000018001a780     USERELEM.obj
+ 0002:00000788       _2il0floatpacket.9         000000018001a788     USERELEM.obj
+ 0002:00000790       _2il0floatpacket.10        000000018001a790     USERELEM.obj
+ 0002:00000798       _2il0floatpacket.13        000000018001a798     USERELEM.obj
+ 0002:000007a0       _2il0floatpacket.14        000000018001a7a0     USERELEM.obj
+ 0002:000007a8       _2il0floatpacket.15        000000018001a7a8     USERELEM.obj
+ 0002:000007b0       _2il0floatpacket.16        000000018001a7b0     USERELEM.obj
+ 0002:000007b8       _2il0floatpacket.17        000000018001a7b8     USERELEM.obj
+ 0002:000007c0       _2il0floatpacket.18        000000018001a7c0     USERELEM.obj
+ 0002:000007c8       _2il0floatpacket.19        000000018001a7c8     USERELEM.obj
+ 0002:000007d0       _2il0floatpacket.20        000000018001a7d0     USERELEM.obj
+ 0002:000007d8       _2il0floatpacket.21        000000018001a7d8     USERELEM.obj
+ 0002:000007e0       _2il0floatpacket.22        000000018001a7e0     USERELEM.obj
+ 0002:000007e8       _2il0floatpacket.23        000000018001a7e8     USERELEM.obj
+ 0002:000007f0       _2il0floatpacket.24        000000018001a7f0     USERELEM.obj
+ 0002:000007f8       _2il0floatpacket.25        000000018001a7f8     USERELEM.obj
+ 0002:00000800       _2il0floatpacket.26        000000018001a800     USERELEM.obj
+ 0002:00000808       _2il0floatpacket.27        000000018001a808     USERELEM.obj
+ 0002:00000810       _2il0floatpacket.28        000000018001a810     USERELEM.obj
+ 0002:00000818       _2il0floatpacket.29        000000018001a818     USERELEM.obj
+ 0002:00000820       _2il0floatpacket.30        000000018001a820     USERELEM.obj
+ 0002:00000828       _2il0floatpacket.31        000000018001a828     USERELEM.obj
+ 0002:00000830       _2il0floatpacket.32        000000018001a830     USERELEM.obj
+ 0002:00000838       _2il0floatpacket.34        000000018001a838     USERELEM.obj
+ 0002:00000840       _2il0floatpacket.35        000000018001a840     USERELEM.obj
+ 0002:00000848       _2il0floatpacket.36        000000018001a848     USERELEM.obj
+ 0002:00000850       _2il0floatpacket.37        000000018001a850     USERELEM.obj
+ 0002:00000858       _2il0floatpacket.38        000000018001a858     USERELEM.obj
+ 0002:00000860       _2il0floatpacket.39        000000018001a860     USERELEM.obj
+ 0002:00000868       _2il0floatpacket.42        000000018001a868     USERELEM.obj
+ 0002:00000870       _2il0floatpacket.43        000000018001a870     USERELEM.obj
+ 0002:00000878       _2il0floatpacket.48        000000018001a878     USERELEM.obj
+ 0002:00000880       __NLITPACK_3.0.8           000000018001a880     USERELEM.obj
+ 0002:00000884       __NLITPACK_4.0.8           000000018001a884     USERELEM.obj
+ 0002:00000888       __STRLITPACK_11            000000018001a888     USERELEM.obj
+ 0002:00000894       __STRLITPACK_9             000000018001a894     USERELEM.obj
+ 0002:00000898       __STRLITPACK_26            000000018001a898     USERELEM.obj
+ 0002:000008a4       __NLITPACK_11.0.16         000000018001a8a4     USERELEM.obj
+ 0002:000008a8       __NLITPACK_12.0.16         000000018001a8a8     USERELEM.obj
+ 0002:000008ac       __STRLITPACK_25            000000018001a8ac     USERELEM.obj
+ 0002:000008c0       __STRLITPACK_24            000000018001a8c0     USERELEM.obj
+ 0002:000008c4       __STRLITPACK_23            000000018001a8c4     USERELEM.obj
+ 0002:000008d0       __NLITPACK_13.0.16         000000018001a8d0     USERELEM.obj
+ 0002:000008d4       __NLITPACK_14.0.16         000000018001a8d4     USERELEM.obj
+ 0002:000008d8       __STRLITPACK_21            000000018001a8d8     USERELEM.obj
+ 0002:000008dc       __STRLITPACK_20            000000018001a8dc     USERELEM.obj
+ 0002:000008e8       __NLITPACK_15.0.16         000000018001a8e8     USERELEM.obj
+ 0002:000008ec       __STRLITPACK_18            000000018001a8ec     USERELEM.obj
+ 0002:000008f0       __STRLITPACK_15            000000018001a8f0     USERELEM.obj
+ 0002:000008f4       __NLITPACK_16.0.16         000000018001a8f4     USERELEM.obj
+ 0002:000008f8       __STRLITPACK_17            000000018001a8f8     USERELEM.obj
+ 0002:00000904       __STRLITPACK_14            000000018001a904     USERELEM.obj
+ 0002:00000910       __NLITPACK_17.0.16         000000018001a910     USERELEM.obj
+ 0002:00000914       __STRLITPACK_12            000000018001a914     USERELEM.obj
+ 0002:00000918       __STRLITPACK_8             000000018001a918     USERELEM.obj
+ 0002:00000924       __STRLITPACK_7             000000018001a924     USERELEM.obj
+ 0002:00000954       __STRLITPACK_6             000000018001a954     USERELEM.obj
+ 0002:00000958       __STRLITPACK_3             000000018001a958     USERELEM.obj
+ 0002:0000095c       __STRLITPACK_5             000000018001a95c     USERELEM.obj
+ 0002:00000968       __NLITPACK_6.0.9           000000018001a968     USERELEM.obj
+ 0002:0000096c       __NLITPACK_5.0.9           000000018001a96c     USERELEM.obj
+ 0002:00000970       __STRLITPACK_0             000000018001a970     USERELEM.obj
+ 0002:00000974       __STRLITPACK_2             000000018001a974     USERELEM.obj
+ 0002:000009a0       irc_msgtab                 000000018001a9a0     libirc:irc_msg_support.obj
+ 0002:00001d38       GS_ExceptionPointers       000000018001bd38     MSVCRT:gs_report.obj
+ 0002:000021c8       $xdatasym                  000000018001c1c8     MSVCRT:chkstk.obj
+ 0002:000021d0       $unwind$_CRT_INIT          000000018001c1d0     MSVCRT:crtdll.obj
+ 0002:000021ec       $unwind$__DllMainCRTStartup 000000018001c1ec     MSVCRT:crtdll.obj
+ 0002:00002228       $unwind$_DllMainCRTStartup 000000018001c228     MSVCRT:crtdll.obj
+ 0002:00002238       $unwind$_IsNonwritableInCurrentImage 000000018001c238     MSVCRT:pesect.obj
+ 0002:0000225c       $unwind$_IsNonwritableInCurrentImage$filt$0 000000018001c25c     MSVCRT:pesect.obj
+ 0002:0000225c       $unwind$__DllMainCRTStartup$fin$1 000000018001c25c     MSVCRT:pesect.obj
+ 0002:0000225c       $unwind$__DllMainCRTStartup$filt$0 000000018001c25c     MSVCRT:pesect.obj
+ 0002:0000225c       $unwind$_onexit$fin$0      000000018001c25c     MSVCRT:pesect.obj
+ 0002:00002264       $unwind$_onexit            000000018001c264     MSVCRT:atonexit.obj
+ 0002:00002284       $unwind$__security_init_cookie 000000018001c284     MSVCRT:gs_support.obj
+ 0002:00002290       $unwind$_RTC_Initialize    000000018001c290     MSVCRT:initsect.obj
+ 0002:00002290       $unwind$_RTC_Terminate     000000018001c290     MSVCRT:initsect.obj
+ 0002:000025c0       $xdatasym                  000000018001c5c0     MSVCRT:amdsecgs.obj
+ 0002:000025c4       $unwind$__GSHandlerCheckCommon 000000018001c5c4     MSVCRT:gshandler.obj
+ 0002:000025c4       $unwind$__atonexitinit     000000018001c5c4     MSVCRT:gshandler.obj
+ 0002:000025c4       $unwind$pre_c_init         000000018001c5c4     MSVCRT:gshandler.obj
+ 0002:000025c4       $unwind$__raise_securityfailure 000000018001c5c4     MSVCRT:gshandler.obj
+ 0002:000025cc       $unwind$atexit             000000018001c5cc     MSVCRT:gshandler.obj
+ 0002:000025cc       $unwind$DllMain            000000018001c5cc     MSVCRT:gshandler.obj
+ 0002:000025cc       $unwind$__GSHandlerCheck   000000018001c5cc     MSVCRT:gshandler.obj
+ 0002:000025d4       $unwind$__report_gsfailure 000000018001c5d4     MSVCRT:gs_report.obj
+ 0002:0000283c       .idata$6                   000000018001c83c     ANSYS:ANSYS.exe
+ 0002:0000285c       .idata$6                   000000018001c85c     ansOpenMP:ansOpenMP.dll
+ 0002:000028b8       .idata$6                   000000018001c8b8     libifcoremd:libifcoremd.dll
+ 0002:000028ce       .idata$6                   000000018001c8ce     libmmd:libmmd.dll
+ 0002:00002942       .idata$6                   000000018001c942     MSVCRT:MSVCR110.dll
+ 0002:00002b18       .idata$6                   000000018001cb18     kernel32:KERNEL32.dll
+ 0002:00002c10       .edata                     000000018001cc10     userelemLib.exp
+ 0002:00002c38       rgpv                       000000018001cc38     userelemLib.exp
+ 0002:00002c3c       rgszName                   000000018001cc3c     userelemLib.exp
+ 0002:00002c40       rgwOrd                     000000018001cc40     userelemLib.exp
+ 0002:00002c42       szName                     000000018001cc42     userelemLib.exp
+ 0002:00002c52       $N00001                    000000018001cc52     userelemLib.exp
+ 0003:00000000       .T989_.0.9                 000000018001d000     USERELEM.obj
+ 0003:00000180       .T995_.0.9                 000000018001d180     USERELEM.obj
+ 0003:00000300       .T977_.0.9                 000000018001d300     USERELEM.obj
+ 0003:00000420       .T983_.0.9                 000000018001d420     USERELEM.obj
+ 0003:00000540       .T965_.0.9                 000000018001d540     USERELEM.obj
+ 0003:00000620       .T971_.0.9                 000000018001d620     USERELEM.obj
+ 0003:00000700       .T953_.0.9                 000000018001d700     USERELEM.obj
+ 0003:00000780       .T959_.0.9                 000000018001d780     USERELEM.obj
+ 0003:00000800       .T941_.0.9                 000000018001d800     USERELEM.obj
+ 0003:00000860       .T947_.0.9                 000000018001d860     USERELEM.obj
+ 0003:000008b0       .T929_.0.9                 000000018001d8b0     USERELEM.obj
+ 0003:000008f0       .T935_.0.9                 000000018001d8f0     USERELEM.obj
+ 0003:00000930       .T917_.0.9                 000000018001d930     USERELEM.obj
+ 0003:00000960       .T923_.0.9                 000000018001d960     USERELEM.obj
+ 0003:00000990       .T905_.0.9                 000000018001d990     USERELEM.obj
+ 0003:000009c0       .T911_.0.9                 000000018001d9c0     USERELEM.obj
+ 0003:000009f0       .T893_.0.9                 000000018001d9f0     USERELEM.obj
+ 0003:00000a10       .T899_.0.9                 000000018001da10     USERELEM.obj
+ 0003:00000a30       .T881_.0.9                 000000018001da30     USERELEM.obj
+ 0003:00000a50       .T887_.0.9                 000000018001da50     USERELEM.obj
+ 0003:00000a70       .T869_.0.9                 000000018001da70     USERELEM.obj
+ 0003:00000a90       .T875_.0.9                 000000018001da90     USERELEM.obj
+ 0003:00000ab0       .T857_.0.9                 000000018001dab0     USERELEM.obj
+ 0003:00000ad0       .T863_.0.9                 000000018001dad0     USERELEM.obj
+ 0003:00000af0       .T845_.0.9                 000000018001daf0     USERELEM.obj
+ 0003:00000b00       .T851_.0.9                 000000018001db00     USERELEM.obj
+ 0003:00000b10       .T833_.0.9                 000000018001db10     USERELEM.obj
+ 0003:00000b20       .T839_.0.9                 000000018001db20     USERELEM.obj
+ 0003:00000b30       .T821_.0.9                 000000018001db30     USERELEM.obj
+ 0003:00000b40       .T827_.0.9                 000000018001db40     USERELEM.obj
  0003:00000b80       cpuid2_cache_tbl           000000018001db80     libirc:fast_mem_ops.obj
  0003:000013a0       first_msg                  000000018001e3a0     libirc:irc_msg_support.obj
  0003:000013a4       use_internal_msg           000000018001e3a4     libirc:irc_msg_support.obj
@@ -593,26 +607,26 @@
  0003:00001ea0       GS_ExceptionRecord         000000018001eea0     MSVCRT:gs_report.obj
  0003:00001f40       GS_ContextRecord           000000018001ef40     MSVCRT:gs_report.obj
  0003:00002410       DebuggerWasPresent         000000018001f410     MSVCRT:gs_report.obj
- 0004:000001ec       $pdata$pre_c_init          000000018157d1ec     MSVCRT:crtdll.obj
- 0004:000001f8       $pdata$_CRT_INIT           000000018157d1f8     MSVCRT:crtdll.obj
- 0004:00000204       $pdata$_DllMainCRTStartup  000000018157d204     MSVCRT:crtdll.obj
- 0004:00000210       $pdata$__DllMainCRTStartup 000000018157d210     MSVCRT:crtdll.obj
- 0004:0000021c       $pdata$_IsNonwritableInCurrentImage 000000018157d21c     MSVCRT:pesect.obj
- 0004:00000228       $pdata$__atonexitinit      000000018157d228     MSVCRT:atonexit.obj
- 0004:00000234       $pdata$_onexit             000000018157d234     MSVCRT:atonexit.obj
- 0004:00000240       $pdata$atexit              000000018157d240     MSVCRT:atonexit.obj
- 0004:0000024c       $pdata$__security_init_cookie 000000018157d24c     MSVCRT:gs_support.obj
- 0004:00000258       $pdata$DllMain             000000018157d258     MSVCRT:dllmain.obj
- 0004:00000264       $pdata$_RTC_Initialize     000000018157d264     MSVCRT:initsect.obj
- 0004:00000270       $pdata$_RTC_Terminate      000000018157d270     MSVCRT:initsect.obj
- 0004:00000588       $pdata$__GSHandlerCheck    000000018157d588     MSVCRT:gshandler.obj
- 0004:00000594       $pdata$__GSHandlerCheckCommon 000000018157d594     MSVCRT:gshandler.obj
- 0004:000005a0       $pdata$__raise_securityfailure 000000018157d5a0     MSVCRT:gs_report.obj
- 0004:000005ac       $pdata$__report_gsfailure  000000018157d5ac     MSVCRT:gs_report.obj
- 0004:000005b8       $pdata$__DllMainCRTStartup$filt$0 000000018157d5b8     MSVCRT:crtdll.obj
- 0004:000005c4       $pdata$__DllMainCRTStartup$fin$1 000000018157d5c4     MSVCRT:crtdll.obj
- 0004:000005d0       $pdata$_IsNonwritableInCurrentImage$filt$0 000000018157d5d0     MSVCRT:pesect.obj
- 0004:000005dc       $pdata$_onexit$fin$0       000000018157d5dc     MSVCRT:atonexit.obj
+ 0004:000001bc       $pdata$pre_c_init          000000018157d1bc     MSVCRT:crtdll.obj
+ 0004:000001c8       $pdata$_CRT_INIT           000000018157d1c8     MSVCRT:crtdll.obj
+ 0004:000001d4       $pdata$_DllMainCRTStartup  000000018157d1d4     MSVCRT:crtdll.obj
+ 0004:000001e0       $pdata$__DllMainCRTStartup 000000018157d1e0     MSVCRT:crtdll.obj
+ 0004:000001ec       $pdata$_IsNonwritableInCurrentImage 000000018157d1ec     MSVCRT:pesect.obj
+ 0004:000001f8       $pdata$__atonexitinit      000000018157d1f8     MSVCRT:atonexit.obj
+ 0004:00000204       $pdata$_onexit             000000018157d204     MSVCRT:atonexit.obj
+ 0004:00000210       $pdata$atexit              000000018157d210     MSVCRT:atonexit.obj
+ 0004:0000021c       $pdata$__security_init_cookie 000000018157d21c     MSVCRT:gs_support.obj
+ 0004:00000228       $pdata$DllMain             000000018157d228     MSVCRT:dllmain.obj
+ 0004:00000234       $pdata$_RTC_Initialize     000000018157d234     MSVCRT:initsect.obj
+ 0004:00000240       $pdata$_RTC_Terminate      000000018157d240     MSVCRT:initsect.obj
+ 0004:00000558       $pdata$__GSHandlerCheck    000000018157d558     MSVCRT:gshandler.obj
+ 0004:00000564       $pdata$__GSHandlerCheckCommon 000000018157d564     MSVCRT:gshandler.obj
+ 0004:00000570       $pdata$__raise_securityfailure 000000018157d570     MSVCRT:gs_report.obj
+ 0004:0000057c       $pdata$__report_gsfailure  000000018157d57c     MSVCRT:gs_report.obj
+ 0004:00000588       $pdata$__DllMainCRTStartup$filt$0 000000018157d588     MSVCRT:crtdll.obj
+ 0004:00000594       $pdata$__DllMainCRTStartup$fin$1 000000018157d594     MSVCRT:crtdll.obj
+ 0004:000005a0       $pdata$_IsNonwritableInCurrentImage$filt$0 000000018157d5a0     MSVCRT:pesect.obj
+ 0004:000005ac       $pdata$_onexit$fin$0       000000018157d5ac     MSVCRT:atonexit.obj
  0005:00000000       AliPxDx                    000000018157e000     libirc:fast_memset.obj
  0005:00000040       setPxQx                    000000018157e040     libirc:fast_memset.obj
  0005:00000480       AliPxQx                    000000018157e480     libirc:fast_memset.obj
