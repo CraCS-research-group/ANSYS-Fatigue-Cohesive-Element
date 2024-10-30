@@ -1,16 +1,23 @@
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !
 ! LICENSE: 
-! Copyright (c) 2023, CraCS Research Group at Aalborg University, Siemens Gamesa RE, and Universitat de Girona
+! Copyright (c) 2023, Siemens Gamesa RE
 ! All rights reserved.
 !
-! This project is licensed under the terms of the GNU Lesser General Public License v3.0 license.
+! The author would like to kindly emphasize that the following rules are respected when using the code. 
+!   * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, 
+!   the code and publications describing the implemented models.
+!   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 !
-! The author would like to kindly emphasize that the following rules are respected when using the code:
-! 
-! * Use of the code in source and binary forms, with or without modification are permitted provided that due reference is given to the author, the 
-! code and publications describing the implemented models.
-! * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+! DISCLAIMER:
+! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+! SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+! POSSIBILITY OF SUCH DAMAGE.
+!
+! Please send your comments or questions to Inigo Urcelay Oca: iuoc@mp.aau.dk / inigo.oca@siemensgamesa.com 
 !
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SUBROUTINE DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !
@@ -60,6 +67,15 @@
             DOUBLE PRECISION ::
      &  JIs(1e5, 10),                                ! Mode I J-integral element contributions
      &  JIIs(1e5, 10),                               ! Mode II J-integral element contributions
+     &  cParisICrack(10),                            ! Parameter c in Paris law for mode I for this crack. Defined in case there are multiple cracks growing in various interfaces with different interface properties
+     &  cParisIICrack(10),                           ! Parameter c in Paris law for mode II for this crack
+     &  cParismCrack(10),                            ! Parameter c in Paris law for fitting of mode interaction for this crack
+     &  mParisICrack(10),                            ! Parameter m in Paris law for mode I for this crack
+     &  mParisIICrack(10),                           ! Parameter m in Paris law for mode II for this crack
+     &  mParismCrack(10),                            ! Parameter m in Paris law for fitting of mode interaction for this crack
+     &  GIcCrack(10),                                ! Mode I critical energy release rate / fracture toughness for this crack
+     &  GIIcCrack(10),                               ! Mode II critical energy release rate / fracture toughness for this crack
+     &  BKetaCrack(10),                              ! Benzeggagh–Kenane criterion coefficient for this crack
      &  JI(10),                                      ! Mode I J-integral
      &  JII(10),                                     ! Mode II J-integral
      &  CrackGrowth(10),                             ! Crack growth (based on fully damaged elements)
@@ -453,6 +469,9 @@ c
      & HALF = 0.5d0)
 !
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% READING PROPERTIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+!     
+!     In order to get multi-threading to work
+      CALL pplock (LOCKUPF)
 !
 !     Read the properties through the subroutine Properties
       CALL Properties(nReal, RealConst, NIntP, IntMethodFlag, 
@@ -461,9 +480,6 @@ c
      & Deltaatarget, sI, sII, InitiationFlag, InitiationLength)
 !
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VARIABLE INITIATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-!     
-!     In order to get multi-threading to work
-      CALL pplock (LOCKUPF)
 !
 !     Zero the user saved variables and other module variables, the very first time this subroutine is run (kfstps == 1)
       IF (kfstps == 1) THEN
@@ -472,6 +488,15 @@ c
             JII(:) = ZERO
             JIs(:,:) = ZERO
             JIIs(:,:) = ZERO 
+            cParisICrack(:) = cParisI
+            cParisIICrack(:) = cParisII
+            cParismCrack(:) = cParism
+            mParisICrack(:) = mParisI
+            mParisIICrack(:) = mParisII
+            mParismCrack(:) = mParism
+            GIcCrack(:) = GIc
+            GIIcCrack(:) = GIIc
+            BKetaCrack(:) = BKeta
             Substep = 0
             Iteration = 0
             Neighbours(:,:) = 0
@@ -534,9 +559,11 @@ c
                         IF (PropCracks(i) .NE. 0) THEN
                               CALL CyclesPropagation(
      & SUM(JIs(:, i)), SUM(JIIs(:, i)), 
-     & cParisI, cParisII, cParism, mParisI,   
-     & mParisII, mParism, GIc, GIIc, BKeta, Deltaatarget,  
-     & DeltaNPropCrack(i), isubst, ieqitr, elId)
+     & cParisICrack(i), cParisIICrack(i), cParismCrack(i), 
+     & mParisICrack(i), mParisIICrack(i), mParismCrack(i),  
+     & GIcCrack(i), GIIcCrack(i), BKetaCrack(i), 
+     & Deltaatarget, DeltaNPropCrack(i),
+     & isubst, ieqitr, elId)
                         END IF
                   END DO
             END IF
@@ -769,7 +796,11 @@ c
             !
             ! Detect if the current element is the one at a crack tip, i.e, the damage variable Dk is 0 in one integration point and between 1 and 0 in another one on the other side
             CALL CrackTipIdentification(NIntP, DkNews, CrackNumbers,
-     & CrackTip, elId, isubst, ieqitr)
+     & CrackTip, elId, cParisICrack, cParisI, cParisIICrack, 
+     & cParisII, cParismCrack, cParism, mParisICrack, mParisI,
+     & mParisIICrack, mParisII, mParismCrack, mParism, GIcCrack, 
+     & GIc, GIIcCrack, GIIc, BKetaCrack, BKeta,
+     & isubst, ieqitr)
       END IF
 !
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FOR POSTPROCESSING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -920,8 +951,10 @@ c
       ! The crack tip element is defined as that where the integration points on one side are damaged, while not on the opposite side
       DO i = 2, SIZE(CrackTip, DIM = 1)
             ! If there is not an element number saved for crack number i as being the crack tip, and this element has not yet been asigned a crack number, the crack is being identified for the first time
+            ! Nevertheless, this part is still run in the case that it is not a propagation crack (to avoid not detecting propagation cracks emerging from initiation cracks if the new crack tip belongs to an assigned crack)
             IF (CrackTip(i,1) .NE. 0 .AND. 
-     & CrackNumbers(CrackTip(i,1)) .NE. i) THEN 
+     & (CrackNumbers(CrackTip(i,1)) .NE. i .OR. 
+     & PropCracks(i) .NE. 1)) THEN 
                   ! Assign the crack number to the element at the crack tip
                   CrackNumbers(CrackTip(i,1)) = i
                   !
@@ -1005,16 +1038,16 @@ c
                                     ! Exit the loop if the next element is more damaged than the previous, such as when two cracks coincide
                                     ! Depending on the propagation direction, use the damage data from the integration point at one side or the other
                                     IF ((PropNode == 0 .AND.
-     & Neighbours(j,3) .GE. Neighbours(NeighbourElem,3)) 
+     & ((Neighbours(j,3) - Neighbours(NeighbourElem,3)) .GE. 1.0D-5))
      & .OR. 
      & (PropNode == 1 .AND.
-     & Neighbours(j,4) .GE. Neighbours(NeighbourElem,4))
+     & ((Neighbours(j,4) - Neighbours(NeighbourElem,4)) .GE. 1.0D-5))
      & ) THEN
                                           EXIT LoopPropNeighs
                                     END IF
                                     ! Exit the loop after a certain number of leaps if the next neighbour is not damaged
                                     ! Check that the number of leaps has not been exceeded
-                                    IF (ExtraLeaps < 30) THEN                                          
+                                    IF (ExtraLeaps < 400) THEN                                          
                                           ! Save the J-integral contribution and crack number
                                           ! Since PropNode has now 
                                           JIs(j, i) = 
@@ -1037,8 +1070,10 @@ c
                         END IF
                   END DO LoopPropNeighs
             ! If the element has already been assigned to a crack, the crack has already been identified before. Extend its definition from the new crack tip
+            ! Only for propagation cracks (to avoid not detecting propagation cracks emerging from initiation cracks if the new crack tip belongs to an assigned crack)
             ELSE IF (CrackTip(i,1) .NE. 0 .AND. 
-     & CrackNumbers(CrackTip(i,1)) == i) THEN
+     & CrackNumbers(CrackTip(i,1)) == i .AND. 
+     & PropCracks(i) == 1) THEN
                   ! Find the subsequent neighbouring elements in the propagation direction
                   NeighbourElem = CrackTip(i,1)
                   ! Zero the number of leaps, which is used to extend the crack a certain number of elements past the damaged ones
@@ -1056,16 +1091,16 @@ c
                                     ! Exit the loop if the next element is more damaged than the previous, such as when two cracks coincide
                                     ! Depending on the propagation direction, use the damage data from the integration point at one side or the other
                                     IF ((PropNode == 0 .AND.
-     & Neighbours(j,3) .GE. Neighbours(NeighbourElem,3)) 
+     & ((Neighbours(j,3) - Neighbours(NeighbourElem,3)) .GE. 1.0D-5)) 
      & .OR. 
      & (PropNode == 1 .AND.
-     & Neighbours(j,4) .GE. Neighbours(NeighbourElem,4))
+     & ((Neighbours(j,4) - Neighbours(NeighbourElem,4)) .GE. 1.0D-5))
      & ) THEN
                                           EXIT LoopPropNeighs2
                                     END IF
                                     ! Exit the loop after a certain number of leaps if the next neighbour is not damaged
                                     ! Check that the number of leaps has not been exceeded
-                                    IF (ExtraLeaps < 30) THEN                                          
+                                    IF (ExtraLeaps < 400) THEN                                          
                                           ! Save the J-integral contribution and crack number
                                           JIs(j, i) = 
      & JIs(j, CrackNumbers(j))
@@ -1174,11 +1209,11 @@ c
 !       errout = erhandler('USERELEM',1003,2,
 !      & 'Debugging CyclePropagation.
 !      & ERR: %F, %F, %F, %F.  
-!      & Calculations: %F, %F, %F, %F, %F.  
+!      & Calculations: %F, %F, %F, %F, %F, %F, %F.  
 !      & DeltaN: %F, %F.',
 !      & (/GI, GII, G, modemixity,
 !      & cParis, mParis, GcGlobal, dadN,
-!      & Deltaatarget, 
+!      & Deltaatarget, GIc, GIIc, 
 !      & DeltaNProp, DeltaNProp/1E6 /), ' ')
 !
       RETURN
@@ -1561,14 +1596,14 @@ c
                   END IF
             END DO
       END IF
-!       ! Debugging
-!       errout = erhandler('USERELEM',1005,2,
-!      & 'Debugging FatigueInitiation
-!      & Substep %F, iteration %F and element %F
-!      & Values: %F, %F.',
-!      & (/isubst*ONE, ieqitr*ONE, elId*ONE,
-!      & DeltaNInitCrack, NumInitCrack(1)*ONE
-!      & /), ' ')
+      ! Debugging
+      errout = erhandler('USERELEM',1005,2,
+     & 'Debugging FatigueInitiation
+     & Substep %F, iteration %F and element %F
+     & Values: %F, %F.',
+     & (/isubst*ONE, ieqitr*ONE, elId*ONE,
+     & DeltaNInitCrack/1e6, NumInitCrack(1)*ONE
+     & /), ' ')
 !
 !     End of the subroutine
       RETURN
@@ -2887,10 +2922,11 @@ c
             errout = erhandler('USERELEM',5005,2,
      & 'ERROR: G %F > GcGlobal %F
      & Substep %F, iteration %F and element %F.
-     & Gs: %F, %F',
+     & Gs: %F, %F. Mode mixity: %F.
+     & Properties: %F, %F, %F.',
      & (/G, GcGlobal,
      & isubst*ONE, ieqitr*ONE, elId*ONE,
-     & GI, GII/), ' ')
+     & GI, GII, modemixity, GIc, GIIc, BKeta/), ' ')
             ! This has been observed to occur in some specimens with unstable fatigue propagation. Full damage is then imposed, skipping the calculation of DkNew and moving directly to that of the dissipated work
             DkNew = ONE
             GO TO 100
@@ -3480,7 +3516,11 @@ c
 !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SUBROUTINE CrackTipIdentification %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 !     Subroutine to identify if the current element is a crack tip element and whether it already belongs to a crack or not
       SUBROUTINE CrackTipIdentification(NIntP, DkNews, CrackNumbers,
-     & CrackTip, elId, isubst, ieqitr)
+     & CrackTip, elId, cParisICrack, cParisI, cParisIICrack, 
+     & cParisII, cParismCrack, cParism, mParisICrack, mParisI,
+     & mParisIICrack, mParisII, mParismCrack, mParism, GIcCrack, 
+     & GIc, GIIcCrack, GIIc, BKetaCrack, BKeta,
+     & isubst, ieqitr)
       IMPLICIT NONE
 !     Declare the variables used inside the subroutine
       INTEGER
@@ -3492,7 +3532,25 @@ c
      &  j,                                         ! Used in loops (inside)
      &  k                                          ! Used in loops (inside)
       DOUBLE PRECISION
-     &  DkNews(NIntP**2)                           ! Variable containing the stiffness damage variable in the current substep for all integration points (sub-in)
+     &  DkNews(NIntP**2),                          ! Variable containing the stiffness damage variable in the current substep for all integration points (sub-in)
+     &  cParisICrack(10),                          ! Parameter c in Paris law for mode I for this crack. Defined in case there are multiple cracks growing in various interfaces with different interface properties (sub-out)
+     &  cParisIICrack(10),                         ! Parameter c in Paris law for mode II for this crack (sub-out)
+     &  cParismCrack(10),                          ! Parameter c in Paris law for fitting of mode interaction for this crack (sub-out)
+     &  mParisICrack(10),                          ! Parameter m in Paris law for mode I for this crack (sub-out)
+     &  mParisIICrack(10),                         ! Parameter m in Paris law for mode II for this crack (sub-out)
+     &  mParismCrack(10),                          ! Parameter m in Paris law for fitting of mode interaction for this crack (sub-out)
+     &  GIcCrack(10),                              ! Mode I critical energy release rate / fracture toughness for this crack (sub-out)
+     &  GIIcCrack(10),                             ! Mode II critical energy release rate / fracture toughness for this crack (sub-out)
+     &  BKetaCrack(10),                            ! Benzeggagh–Kenane criterion coefficient for this crack (sub-out)
+     &  cParisI,                                   ! Parameter c in Paris law for mode I (sub-in)
+     &  cParisII,                                  ! Parameter c in Paris law for mode II (sub-in)
+     &  cParism,                                   ! Parameter c in Paris law for fitting of mode interaction (sub-in)
+     &  mParisI,                                   ! Parameter m in Paris law for mode I (sub-in)
+     &  mParisII,                                  ! Parameter m in Paris law for mode II (sub-in)
+     &  mParism,                                   ! Parameter m in Paris law for fitting of mode interaction (sub-in)
+     &  GIc,                                       ! Mode I critical energy release rate / fracture toughness (sub-in)
+     &  GIIc,                                      ! Mode II critical energy release rate / fracture toughness (sub-in)
+     &  BKeta                                      ! Benzeggagh–Kenane criterion coefficient (sub-in)
 !    Next, the variables used in debugging are declared. Including some variables used to identify the instant when the message is printed out
       EXTERNAL ::
      &  erhandler                                  ! ANSYS own subroutine for displaying program errors
@@ -3523,6 +3581,7 @@ c
                                     ! Save the element number for this crack in the variable CrackTip 
                                     CrackTip(CrackNumbers(elId),1) = 
      & elId
+                                    k = CrackNumbers(elId) 
                               ! If the element does not belong to a crack 
                               ELSE
                                     ! Loop over the possible crack numbers
@@ -3544,12 +3603,32 @@ c
                                     CrackTip(k,2) = 0
                               END IF
                               !
-                              ! After saving the crack number and the propagation direction, exit the loop
+                              ! After saving the crack number and the propagation direction, assign the interface properties of this crack based on those of its crack tip element
+                              cParisICrack(k) = cParisI
+                              cParisIICrack(k) = cParisII
+                              cParismCrack(k) = cParism
+                              mParisICrack(k) = mParisI
+                              mParisIICrack(k) = mParisII
+                              mParismCrack(k) = mParism
+                              GIcCrack(k) = GIc
+                              GIIcCrack(k) = GIIc
+                              BKetaCrack(k) = BKeta
+                              !
+!                               ! Debugging
+!                               errout = erhandler('USERELEM',1019,2,
+!      & 'Debugging crack tip identification.
+!      & Substep %F and element %F.
+!      & NumCrack: %F, GIIc: %F.',
+!      & (/isubst*ONE, elId*ONE, 
+!      & k*ONE, GIIcCrack(k)/), ' ')
+                              !
+                              ! Exit the loop
                               EXIT LoopCrackTip
                         END IF
                   END IF
             END DO
       END DO LoopCrackTip
+!
 !
       RETURN
       END SUBROUTINE CrackTipIdentification
